@@ -39,7 +39,7 @@ export interface Resource {
     },
     {
       id: 3,
-      icon: '/images/resources/neurodes.png',
+      icon: '/images/resources/Neurodes.webp',
       name: { es: 'Neurodos', en: 'Neurodes' },
       planet: { es: 'Tierra / Deimos', en: 'Earth / Deimos' },
       mission: { es: 'Tikal / Tífon', en: 'Tikal / Typhon' },
@@ -47,15 +47,15 @@ export interface Resource {
     },
     {
       id: 4,
-      icon: '/images/resources/mutagen-mass.png',
-      name: { es: 'Masa Mutágena', en: 'Mutagen Mass' },
+      icon: '/images/resources/MutagenSample.webp',
+      name: { es: 'Muestra Mutágena', en: 'Mutagen Sample' },
       planet: { es: 'Deimos / Vacío', en: 'Deimos / Void' },
       mission: { es: 'Terrorem / Taranis', en: 'Terrorem / Taranis' },
       notes: { es: 'Común en derelictos Orokin', en: 'Common in Orokin Derelicts' },
     },
     {
         id: 5,
-        icon: '/images/resources/polymer-bundle.png',
+        icon: '/images/resources/PolymerBundle.webp',
         name: { es: 'Paquete de Polímero', en: 'Polymer Bundle' },
         planet: { es: 'Mercurio / Venus', en: 'Mercury / Venus' },
         mission: { es: 'Apollodorus / Malva', en: 'Apollodorus / Malva' },
@@ -63,7 +63,7 @@ export interface Resource {
     },
     {
         id: 6,
-        icon: '/images/resources/gallium.png',
+        icon: '/images/resources/Gallium.webp',
         name: { es: 'Galio', en: 'Gallium' },
         planet: { es: 'Marte / Urano', en: 'Mars / Uranus' },
         mission: { es: 'Ara / Assur', en: 'Ara / Assur' },
@@ -71,7 +71,7 @@ export interface Resource {
     },
     {
         id: 7,
-        icon: '/images/resources/morphics.png',
+        icon: '/images/resources/Morphics.webp',
         name: { es: 'Morfos', en: 'Morphics' },
         planet: { es: 'Marte / Mercurio', en: 'Mars / Mercury' },
         mission: { es: 'Wahiba / Caloris', en: 'Wahiba / Caloris' },
@@ -79,7 +79,7 @@ export interface Resource {
     },
     {
         id: 8,
-        icon: '/images/resources/argon-crystal.png',
+        icon: '/images/resources/ArgonCrystal.webp',
         name: { es: 'Cristal de Argón', en: 'Argon Crystal' },
         planet: { es: 'Vacío', en: 'Void' },
         mission: { es: 'Taranis / Mot', en: 'Taranis / Mot' },
@@ -87,7 +87,7 @@ export interface Resource {
     },
     {
         id: 9,
-        icon: '/images/resources/tellurium.png',
+        icon: '/images/resources/Tellurium.webp',
         name: { es: 'Tellurio', en: 'Tellurium' },
         planet: { es: 'Urano / Neptuno', en: 'Uranus / Neptune' },
         mission: { es: 'Ophelia / Salacia', en: 'Ophelia / Salacia' },

@@ -1,3 +1,4 @@
+
 'use client';
 
 import {
@@ -5,23 +6,24 @@ import {
     SelectContent,
     SelectItem,
     SelectTrigger,
-    SelectValue,
   } from "@/components/ui/select"
 import { useLanguage } from "@/context/language-context";
 import { Globe } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "./ui/button";
   
 export function LanguageToggle() {
     const { language, setLanguage } = useLanguage();
 
     return (
         <Select onValueChange={(value: 'es' | 'en') => setLanguage(value)} defaultValue={language}>
-            <SelectTrigger className="w-auto gap-2 border-0 bg-transparent shadow-none">
-                <Globe className="h-4 w-4" />
-                <SelectValue placeholder="Language" />
+            <SelectTrigger className={cn(buttonVariants({ variant: "outline", size: "icon" }))}>
+                  <Globe className="h-[1.2rem] w-[1.2rem]" />
+                  <span className="sr-only">Toggle language</span>
             </SelectTrigger>
             <SelectContent>
-                <SelectItem value="es">Español</SelectItem>
-                <SelectItem value="en">English</SelectItem>
+                <SelectItem value="es">Es</SelectItem>
+                <SelectItem value="en">En</SelectItem>
             </SelectContent>
         </Select>
     );
