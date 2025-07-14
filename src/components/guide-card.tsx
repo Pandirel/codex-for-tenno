@@ -1,6 +1,6 @@
 'use client';
 
-import type { Guide } from '@/data/guides';
+import type { Guide } from '@/models/guide';
 import {
   Card,
   CardContent,
@@ -12,7 +12,6 @@ import {
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -28,9 +27,11 @@ export function GuideCard({ guide, language }: { guide: Guide, language: 'en' | 
   const category = guide.category;
 
   const getSummary = (htmlContent: string) => {
-    const firstParagraph = htmlContent.split('</p>')[0];
-    const textContent = firstParagraph.replace(/<[^>]*>?/gm, '');
-    return textContent.split('\n\n')[1] || textContent.split('\n\n')[0] || '';
+    const firstParagraph = htmlContent.match(/<p>(.*?)<\/p>/);
+    if (firstParagraph && firstParagraph[1]) {
+      return firstParagraph[1].replace(/<[^>]*>?/gm, '');
+    }
+    return '';
   };
   
   return (
