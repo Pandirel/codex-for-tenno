@@ -23,7 +23,7 @@ export interface Resource {
   const resources: Resource[] = [
     {
       id: 1,
-      icon: '/images/resources/orokin-cell.png',
+      icon: '/images/resources/OrokinCell.webp',
       name: { es: 'Célula Orokin', en: 'Orokin Cell' },
       planet: { es: 'Ceres / Deimos', en: 'Ceres / Deimos' },
       mission: { es: 'Gabii / Draco', en: 'Gabii / Draco' },
@@ -31,7 +31,7 @@ export interface Resource {
     },
     {
       id: 2,
-      icon: '/images/resources/plastids.png',
+      icon: '/images/resources/Plastids.webp',
       name: { es: 'Plástidos', en: 'Plastids' },
       planet: { es: 'Saturno / Urano', en: 'Saturn / Uranus' },
       mission: { es: 'Helene / Ophelia', en: 'Helene / Ophelia' },
@@ -96,7 +96,5 @@ export interface Resource {
   ];
   
   export function getResources(): Resource[] {
-    // For now, we will return placeholder icons.
-    // In the future, you can replace these with the actual icons.
-    return resources.map(r => ({ ...r, icon: `https://placehold.co/32x32.png`}));
+    return resources;
   }

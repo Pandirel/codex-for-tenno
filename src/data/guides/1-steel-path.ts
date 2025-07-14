@@ -43,7 +43,7 @@ export const steelPathGuide: Guide = {
 <p>¡Mucha suerte, Tenno!</p>`,
     en: `
 <p>The Steel Path is Warframe's "endgame" content, offering much harder versions of all missions on the star chart. In return, you'll get Steel Essence to buy valuable items from Teshin. 🦾</p>
-<img src="/images/guides/steel-path-banner.png" data-ai-hint="warframe steel path" alt="Steel Path Banner" class="rounded-lg my-4"/>
+<img src="https://placehold.co/600x400.png" data-ai-hint="warframe steel path" alt="Steel Path Banner" class="rounded-lg my-4"/>
 <h3>Main Requirements ✅</h3>
 <p>To unlock the Steel Path, you must meet the following requirements:</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
