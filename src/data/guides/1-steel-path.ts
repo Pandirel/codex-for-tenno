@@ -10,7 +10,7 @@ export const steelPathGuide: Guide = {
   content: {
     es: `
 <p>El Camino de Acero es el contenido "endgame" de Warframe, ofreciendo versiones mucho más difíciles de todas las misiones del mapa estelar. A cambio, obtendrás Esencia de Acero para comprar objetos valiosos. 🦾</p>
-<img src="https://storage.googleapis.com/maker-studio-56961.appspot.com/users/user-MGGYxOq2SpcYo81YpqtP/studios/y6uODc6pXgGqM8hN/i-x3m3bUj1J-yT_46Q.png" data-ai-hint="warframe steel path" alt="Banner del Camino de Acero" class="rounded-lg my-4"/>
+<img src="/images/steel-path-banner.png" data-ai-hint="warframe steel path" alt="Banner del Camino de Acero" class="rounded-lg my-4"/>
 <h3>Requisitos Principales ✅</h3>
 <p>Para desbloquear el Camino de Acero, debes cumplir con los siguientes requisitos:</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
@@ -43,7 +43,7 @@ export const steelPathGuide: Guide = {
 <p>¡Mucha suerte, Tenno!</p>`,
     en: `
 <p>The Steel Path is Warframe's "endgame" content, offering much harder versions of all missions on the star chart. In return, you'll get Steel Essence to buy valuable items from Teshin. 🦾</p>
-<img src="https://storage.googleapis.com/maker-studio-56961.appspot.com/users/user-MGGYxOq2SpcYo81YpqtP/studios/y6uODc6pXgGqM8hN/i-x3m3bUj1J-yT_46Q.png" data-ai-hint="warframe steel path" alt="Steel Path Banner" class="rounded-lg my-4"/>
+<img src="/images/steel-path-banner.png" data-ai-hint="warframe steel path" alt="Steel Path Banner" class="rounded-lg my-4"/>
 <h3>Main Requirements ✅</h3>
 <p>To unlock the Steel Path, you must meet the following requirements:</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
