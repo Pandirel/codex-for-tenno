@@ -54,9 +54,9 @@ export function GuideCard({ guide, language }: { guide: Guide, language: 'en' | 
           <DialogContent className="max-w-4xl h-[90vh]">
             <DialogHeader>
               <DialogTitle className="text-2xl font-headline">{title}</DialogTitle>
-              <DialogDescription>
+              <div className="text-sm text-muted-foreground">
                 <Badge variant="secondary">{getCategoryTranslation(category)}</Badge>
-              </DialogDescription>
+              </div>
             </DialogHeader>
             <ScrollArea className="flex-grow h-full pr-6 -mr-6">
                 <div className="text-sm text-foreground/90 whitespace-pre-line">
