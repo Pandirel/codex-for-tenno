@@ -22,6 +22,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { WandSparkles } from 'lucide-react';
 import { Skeleton } from './ui/skeleton';
+import { cn } from '@/lib/utils';
 
 export function GuideCard({ guide }: { guide: Guide }) {
   const [summary, setSummary] = useState('');
@@ -64,11 +65,17 @@ export function GuideCard({ guide }: { guide: Guide }) {
       <CardFooter>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1" className="border-t border-b-0 pt-4">
-             <AccordionTrigger asChild onClick={handleSummarize}>
-              <Button variant="ghost" className="w-full justify-between items-center px-4 py-2 hover:no-underline">
+            <AccordionTrigger 
+              onClick={handleSummarize} 
+              className={cn(
+                "w-full justify-between items-center px-4 py-2 hover:no-underline rounded-md hover:bg-accent",
+                "text-sm font-medium"
+              )}
+            >
+              <span className="flex items-center gap-2">
                 Summarize with AI
-                <WandSparkles className="h-5 w-5 text-primary" />
-              </Button>
+              </span>
+              <WandSparkles className="h-5 w-5 text-primary" />
             </AccordionTrigger>
             <AccordionContent className="pt-4">
               {isLoading && (
