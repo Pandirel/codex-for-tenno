@@ -52,7 +52,7 @@ export function GuideCard({ guide, language }: { guide: Guide, language: 'en' | 
           <DialogTrigger asChild>
             <Button variant="outline" className='w-full'>{language === 'es' ? 'Leer Más' : 'Read More'}</Button>
           </DialogTrigger>
-          <DialogContent className="max-w-4xl h-[90vh]">
+          <DialogContent className="max-w-6xl h-[90vh]">
             <DialogHeader>
               <DialogTitle className="text-2xl font-headline">{title}</DialogTitle>
               <div className="text-sm text-muted-foreground">
