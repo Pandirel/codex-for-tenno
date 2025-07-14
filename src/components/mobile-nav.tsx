@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from './ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetHeader, SheetTitle } from './ui/sheet';
 import { useLanguage } from '@/context/language-context';
 import { WarframeLogo } from './icons';
 
@@ -24,10 +24,14 @@ export function MobileNav() {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="pr-0">
-          <div className="flex items-center gap-3 mb-8">
-            <WarframeLogo className="h-8 w-8 text-primary" />
-            <h1 className="text-2xl font-bold font-headline tracking-tight">Warframe Codex</h1>
-          </div>
+          <SheetHeader className="mb-8 text-left">
+            <SheetTitle>
+              <div className="flex items-center gap-3">
+                <WarframeLogo className="h-8 w-8 text-primary" />
+                <span className="text-2xl font-bold font-headline tracking-tight">Warframe Codex</span>
+              </div>
+            </SheetTitle>
+          </SheetHeader>
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <SheetClose asChild key={link.href}>
