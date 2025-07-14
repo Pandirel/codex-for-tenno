@@ -34,9 +34,9 @@ export function FarmingTable({ resources }: { resources: Resource[] }) {
               <Image 
                 src={resource.icon} 
                 alt={resource.name[language]} 
-                width={40} 
-                height={40} 
-                className="rounded-full"
+                width={56} 
+                height={56} 
+                className="rounded-lg"
                 data-ai-hint="resource icon"
               />
               <CardTitle className="text-xl font-headline">{resource.name[language]}</CardTitle>
