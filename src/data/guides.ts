@@ -16,18 +16,18 @@ const guides: Guide[] = [
   {
     id: 1,
     title: {
-      es: 'Guía para Desbloquear el Camino de Acero en Warframe',
-      en: 'Guide to Unlock the Steel Path in Warframe',
+      es: 'Guía para Desbloquear el Camino de Acero',
+      en: 'Guide to Unlock the Steel Path',
     },
     category: 'Steel Path',
     content: {
       es: `
-<p>El Camino de Acero es el contenido "endgame" de Warframe, ofreciendo versiones mucho más difíciles de todas las misiones del mapa estelar. A cambio, obtendrás Esencia de Acero para comprar objetos valiosos.</p>
+<p>El Camino de Acero es el contenido "endgame" de Warframe, ofreciendo versiones mucho más difíciles de todas las misiones del mapa estelar. A cambio, obtendrás Esencia de Acero para comprar objetos valiosos. 🦾</p>
 <img src="https://placehold.co/600x400.png" data-ai-hint="warframe steel path" alt="Banner del Camino de Acero" class="rounded-lg my-4"/>
 <h3>Requisitos Principales ✅</h3>
 <p>Para desbloquear el Camino de Acero, debes cumplir con los siguientes requisitos:</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
-    <li><b>Completar TODOS los nodos del Mapa Estelar "normal":</b> Esto significa que cada nodo de cada planeta, incluyendo lunas y zonas especiales, debe estar completado.</li>
+    <li><b>Completar TODOS los nodos del Mapa Estelar "normal":</b> Cada nodo de cada planeta debe estar completado.</li>
     <li><b>Zonas especiales a tener en cuenta:</b> Lua, Fortaleza Kuva, Deimos (Laboratorios de Albrecht) y Zariman deben estar completamente explorados.</li>
     <li><b>Completar Aventuras Clave:</b> "Prólogo de la Quimera" y "Ángeles del Zariman" son cruciales.</li>
     <li><b>Completar los tres modos de Duviri:</b> Es necesario completar al menos una vez el Gusano de Murmur en el Circuito, Experiencia Duviri y Solo Historia.</li>
@@ -55,12 +55,12 @@ const guides: Guide[] = [
 </ul>
 <p>¡Mucha suerte, Tenno!</p>`,
       en: `
-<p>The Steel Path is Warframe's "endgame" content, offering much harder versions of all missions on the star chart. In return, you'll get Steel Essence to buy valuable items from Teshin.</p>
+<p>The Steel Path is Warframe's "endgame" content, offering much harder versions of all missions on the star chart. In return, you'll get Steel Essence to buy valuable items from Teshin. 🦾</p>
 <img src="https://placehold.co/600x400.png" data-ai-hint="warframe steel path" alt="Steel Path Banner" class="rounded-lg my-4"/>
 <h3>Main Requirements ✅</h3>
 <p>To unlock the Steel Path, you must meet the following requirements:</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
-    <li><b>Complete ALL nodes on the "normal" Star Chart:</b> This means every node on every planet, including moons and special zones, must be completed.</li>
+    <li><b>Complete ALL nodes on the "normal" Star Chart:</b> Every node on every planet must be completed.</li>
     <li><b>Special zones to consider:</b> Lua, Kuva Fortress, Deimos (Albrecht's Laboratories), and the Zariman must be fully explored.</li>
     <li><b>Complete Key Quests:</b> "Chimera Prologue" and "Angels of the Zariman" are crucial.</li>
     <li><b>Complete the three Duviri modes:</b> You need to complete the Murmur Worm at least once in The Circuit, The Duviri Experience, and The Lone Story.</li>
@@ -162,7 +162,7 @@ const guides: Guide[] = [
     category: 'Warframes',
     content: {
       es: `
-<p>Ampliar tu arsenal de Warframes es una parte fundamental de la experiencia de juego. Cada Warframe ofrece un estilo de juego único, y aquí te explicamos cómo conseguirlos.</p>
+<p>Ampliar tu arsenal de Warframes es una parte fundamental de la experiencia de juego. Cada Warframe ofrece un estilo de juego único, y aquí te explicamos cómo conseguirlos. ✨</p>
 <img src="https://placehold.co/600x400.png" data-ai-hint="warframe collection" alt="Colección de Warframes" class="rounded-lg my-4"/>
 <h3>Método 1: Derrotando Jefes de Planeta ⚔️</h3>
 <p>La forma más común de obtener los planos de los componentes de un Warframe (Neurópticas, Chasis y Sistemas) es derrotando a los jefes de cada planeta. Por ejemplo:</p>
@@ -186,9 +186,7 @@ const guides: Guide[] = [
     <li><b>"Cadenas de Harrow":</b> Desbloquea a <b>Harrow</b>.</li>
     <li><b>"La Nueva Guerra":</b> Te da acceso a <b>Caliban</b>.</li>
 </ul>
-<h3>Método 4: Comprar en el Mercado con Platinum 💎</h3>
-<p>Si prefieres la ruta rápida, siempre puedes comprar Warframes completamente construidos (con un reactor y una ranura incluidos) en el Mercado del juego usando Platinum, la moneda premium.</p>
-<h3>Método 5: Sindicatos y Vendedores Especiales 🤝</h3>
+<h3>Método 4: Sindicatos y Vendedores Especiales 🤝</h3>
 <p>Algunos Warframes y sus componentes se obtienen a través de la reputación con sindicatos en los mundos abiertos:</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>Cetus (Tierra):</b> Permite obtener a <b>Gara</b>.</li>
@@ -197,7 +195,7 @@ const guides: Guide[] = [
 </ul>
 <p>¡Explora todas las opciones y colecciona todos los Warframes que puedas para dominar el Sistema Origen!</p>`,
       en: `
-<p>Expanding your arsenal of Warframes is a core part of the game experience. Each Warframe offers a unique playstyle, and here's how you can get them.</p>
+<p>Expanding your arsenal of Warframes is a core part of the game experience. Each Warframe offers a unique playstyle, and here's how you can get them. ✨</p>
 <img src="https://placehold.co/600x400.png" data-ai-hint="warframe collection" alt="Warframe Collection" class="rounded-lg my-4"/>
 <h3>Method 1: Defeating Planet Bosses ⚔️</h3>
 <p>The most common way to get a Warframe's component blueprints (Neuroptics, Chassis, and Systems) is by defeating the bosses on each planet. For example:</p>
@@ -218,12 +216,10 @@ const guides: Guide[] = [
 <p>Many of the most interesting Warframes with unique stories are obtained as rewards for completing specific quests.</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>"The Second Dream":</b> Rewards the blueprint for <b>Inaros</b>.</li>
-    <li><b>"Chains of Harrow":</b> Unlocks <b>Harrow</b>.</li>
+    <li><b>"Chains of Harrow":: Unlocks <b>Harrow</b>.</li>
     <li><b>"The New War":</b> Gives you access to <b>Caliban</b>.</li>
 </ul>
-<h3>Method 4: Buying from the Market with Platinum 💎</h3>
-<p>If you prefer the fast route, you can always buy fully built Warframes (with a reactor and slot included) from the in-game Market using Platinum, the premium currency.</p>
-<h3>Method 5: Syndicates and Special Vendors 🤝</h3>
+<h3>Method 4: Syndicates and Special Vendors 🤝</h3>
 <p>Some Warframes and their components are obtained through reputation with syndicates in the open worlds:</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>Cetus (Earth):</b> Allows you to get <b>Gara</b>.</li>
@@ -233,10 +229,92 @@ const guides: Guide[] = [
 <p>Explore all the options and collect as many Warframes as you can to master the Origin System!</p>`,
     },
   },
+  {
+    id: 4,
+    title: {
+      es: 'Guía de Armas: Cómo Conseguir y Mejorar tu Arsenal',
+      en: 'Weapons Guide: How to Get and Improve Your Arsenal',
+    },
+    category: 'Weapons',
+    content: {
+      es: `
+<p>Tu arsenal es tan importante como tu Warframe. Descubre cómo conseguir las mejores armas y convertirlas en máquinas de destrucción masiva. 🔫💥</p>
+<img src="https://placehold.co/600x400.png" data-ai-hint="warframe arsenal" alt="Arsenal de Warframe" class="rounded-lg my-4"/>
+<h3>1. Tipos de Armas y Dónde Encontrarlas 🗺️</h3>
+<p>Las armas en Warframe se consiguen de varias maneras:</p>
+<ul class="list-disc pl-5 space-y-2 my-4">
+    <li><b>Mercado:</b> Muchos planos de armas se pueden comprar directamente en el mercado por Créditos. ¡No gastes Platinum en armas que puedes construir!</li>
+    <li><b>Dojo del Clan:</b> Al igual que los Warframes, muchos planos de armas poderosas están disponibles para investigar y replicar en el Dojo de tu clan.</li>
+    <li><b>Recompensas de Aventuras:</b> Algunas de las armas más únicas y con historia se obtienen al completar aventuras específicas.</li>
+    <li><b>Armas de Sindicatos:</b> Al ganar reputación con los diferentes Sindicatos, podrás comprar sus armas exclusivas.</li>
+    <li><b>Versiones Especiales (Prime, Kuva, Tenet):</b> Estas son las variantes más potentes y se obtienen de Reliquias del Vacío (Prime) o derrotando Liches de Kuva y Hermanas de Parvos (Kuva/Tenet).</li>
+</ul>
+<h3>2. El Ciclo de Mejora: Mods, Catalizadores y Formas ⚙️</h3>
+<p>Un arma de nivel 30 sin mods es inútil. El verdadero poder viene de su mejora:</p>
+<img src="https://placehold.co/600x300.png" data-ai-hint="warframe weapon modding" alt="Modding de arma" class="rounded-lg my-4"/>
+<ul class="list-disc pl-5 space-y-2 my-4">
+    <li><b>Mods Esenciales:</b> Empieza siempre con daño base (<i>Serración</i>), multi-disparo (<i>Cámara Dividida</i>), probabilidad y daño crítico.</li>
+    <li><b>Catalizador Orokin (Papa):</b> Duplica la capacidad de mods de un arma, de 30 a 60. ¡Es la mejora más importante que puedes hacer!</li>
+    <li><b>Forma:</b> Permite añadir una polaridad a una ranura de mod. Si la polaridad del mod coincide, su coste se reduce a la mitad. Usar una Forma reinicia el nivel del arma a 0, pero es esencial para builds de alto nivel.</li>
+</ul>
+<h3>3. Daños Elementales: La Clave del Éxito 🔥❄️⚡☣️</h3>
+<p>Combinar mods elementales crea daños secundarios que son efectivos contra tipos específicos de enemigos. Las combinaciones más importantes son:</p>
+<ul class="list-disc pl-5 space-y-2 my-4">
+    <li><b>Viral (Frío + Toxina):</b> Aumenta el daño a la salud. Es la combinación más popular y efectiva en general.</li>
+    <li><b>Corrosivo (Electricidad + Toxina):</b> Reduce la armadura de los enemigos. Excelente contra Grineer.</li>
+    <li><b>Gas (Calor + Toxina):</b> Crea nubes de daño que afectan a grupos.</li>
+    <li><b>Cortante (Slash):</b> No es una combinación, pero es un tipo de daño físico que ignora la armadura y causa daño directo a la salud a lo largo del tiempo. ¡Es el rey del endgame!</li>
+</ul>
+<h3>4. Armas Recomendadas para Empezar 🚀</h3>
+<ul class="list-disc pl-5 space-y-2 my-4">
+    <li><b>Hek:</b> Una escopeta devastadora que se consigue temprano. Con su mod de sindicato, es viable hasta en contenido avanzado.</li>
+    <li><b>Ignis Wraith:</b> Un lanzallamas que puede limpiar salas enteras. Los planos a menudo son regalados por clanes veteranos.</li>
+    <li><b>Atomos:</b> Un arma secundaria de rayo que puede encadenar a varios enemigos.</li>
+</ul>
+<p>¡Experimenta con diferentes armas, encuentra tu estilo de juego y nunca dejes de mejorar tu arsenal!</p>`,
+      en: `
+<p>Your arsenal is just as important as your Warframe. Discover how to get the best weapons and turn them into machines of mass destruction. 🔫💥</p>
+<img src="https://placehold.co/600x400.png" data-ai-hint="warframe arsenal" alt="Warframe Arsenal" class="rounded-lg my-4"/>
+<h3>1. Types of Weapons and Where to Find Them 🗺️</h3>
+<p>Weapons in Warframe are obtained in several ways:</p>
+<ul class="list-disc pl-5 space-y-2 my-4">
+    <li><b>Market:</b> Many weapon blueprints can be bought directly from the market for Credits. Don't spend Platinum on weapons you can build!</li>
+    <li><b>Clan Dojo:</b> Like Warframes, many powerful weapon blueprints are available for research and replication in your clan's Dojo.</li>
+    <li><b>Quest Rewards:</b> Some of the most unique and story-rich weapons are obtained by completing specific quests.</li>
+    <li><b>Syndicate Weapons:</b> By gaining reputation with the different Syndicates, you can purchase their exclusive weapons.</li>
+    <li><b>Special Versions (Prime, Kuva, Tenet):</b> These are the most potent variants and are obtained from Void Relics (Prime) or by defeating Kuva Liches and Sisters of Parvos (Kuva/Tenet).</li>
+</ul>
+<h3>2. The Upgrade Cycle: Mods, Catalysts, and Forma ⚙️</h3>
+<p>A level 30 weapon without mods is useless. The real power comes from upgrading it:</p>
+<img src="https://placehold.co/600x300.png" data-ai-hint="warframe weapon modding" alt="Weapon Modding" class="rounded-lg my-4"/>
+<ul class="list-disc pl-5 space-y-2 my-4">
+    <li><b>Essential Mods:</b> Always start with base damage (<i>Serration</i>), multishot (<i>Split Chamber</i>), critical chance, and critical damage.</li>
+    <li><b>Orokin Catalyst (Potato):</b> Doubles a weapon's mod capacity from 30 to 60. It's the most important upgrade you can make!</li>
+    <li><b>Forma:</b> Allows you to add a polarity to a mod slot. If the mod's polarity matches, its cost is halved. Using a Forma resets the weapon's level to 0, but it is essential for high-level builds.</li>
+</ul>
+<h3>3. Elemental Damages: The Key to Success 🔥❄️⚡☣️</h3>
+<p>Combining elemental mods creates secondary damages that are effective against specific enemy types. The most important combinations are:</p>
+<ul class="list-disc pl-5 space-y-2 my-4">
+    <li><b>Viral (Cold + Toxin):</b> Increases damage to health. It is the most popular and generally effective combination.</li>
+    <li><b>Corrosive (Electricity + Toxin):</b> Reduces enemy armor. Excellent against Grineer.</li>
+    <li><b>Gas (Heat + Toxin):</b> Creates clouds of damage that affect groups.</li>
+    <li><b>Slash:</b> Not a combination, but it's a physical damage type that bypasses armor and deals damage over time directly to health. It's the king of the endgame!</li>
+</ul>
+<h3>4. Recommended Weapons to Start With 🚀</h3>
+<ul class="list-disc pl-5 space-y-2 my-4">
+    <li><b>Hek:</b> A devastating shotgun available early on. With its syndicate mod, it's viable even in advanced content.</li>
+    <li><b>Ignis Wraith:</b> A flamethrower that can clear entire rooms. Blueprints are often given away by veteran clans.</li>
+    <li><b>Atomos:</b> A beam secondary weapon that can chain between multiple enemies.</li>
+</ul>
+<p>Experiment with different weapons, find your playstyle, and never stop improving your arsenal!</p>`,
+    },
+  },
 ];
 
 export function getGuides(): Guide[] {
   return guides;
 }
+
+    
 
     
