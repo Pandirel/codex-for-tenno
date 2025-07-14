@@ -60,7 +60,7 @@ export function GuideCard({ guide, language }: { guide: Guide, language: 'en' | 
               </div>
             </DialogHeader>
             <ScrollArea className="flex-grow h-full pr-6 -mr-6">
-                <div className="text-sm text-foreground/90 whitespace-pre-line prose-sm prose-invert" dangerouslySetInnerHTML={{ __html: content }} />
+                <div className="guide-content text-foreground/90 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: content }} />
             </ScrollArea>
           </DialogContent>
         </Dialog>

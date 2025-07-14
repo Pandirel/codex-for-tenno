@@ -86,3 +86,22 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .guide-content h3 {
+    @apply text-lg font-bold mt-6 mb-3;
+  }
+
+  .guide-content ul {
+    @apply list-none pl-4 my-4;
+  }
+
+  .guide-content ul li {
+    @apply mb-2 pl-6 relative;
+  }
+
+  .guide-content ul li::before {
+    content: '🔹';
+    @apply absolute left-0 top-1 text-sm;
+  }
+}

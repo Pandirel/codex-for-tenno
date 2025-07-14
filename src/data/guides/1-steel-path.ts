@@ -24,7 +24,7 @@ export const steelPathGuide: Guide = {
     <li><b>Revisa tu mapa estelar:</b> Busca cualquier nodo que no esté azul.</li>
     <li><b>Habla con Teshin:</b> En cualquier Repetidor, Teshin te dirá si estás listo o qué te falta.</li>
 </ul>
-<img src="https://placehold.co/600x300.png" data-ai-hint="warframe teshin" alt="Teshin en el repetidor" class="rounded-lg my-4"/>
+<img src="/images/Teshin.png" data-ai-hint="warframe teshin" alt="Teshin en el repetidor" class="rounded-lg my-4"/>
 <h3>Una vez Desbloqueado 💥</h3>
 <p>Prepárate para enemigos significativamente más fuertes, con +150% de salud, armadura y escudos.</p>
 <h4>Recompensas Notables:</h4>
