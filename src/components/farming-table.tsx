@@ -1,3 +1,4 @@
+
 'use client';
 
 import {
@@ -11,6 +12,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import type { Resource } from '@/data/resources';
 import { useLanguage } from '@/context/language-context';
+import Image from 'next/image';
 
 export function FarmingTable({ resources }: { resources: Resource[] }) {
   const { language, translations } = useLanguage();
@@ -27,6 +29,7 @@ export function FarmingTable({ resources }: { resources: Resource[] }) {
         <Table>
           <TableHeader>
             <TableRow>
+              <TableHead className="w-12"></TableHead>
               <TableHead className="w-[200px]">{t.resource}</TableHead>
               <TableHead>{t.planet}</TableHead>
               <TableHead>{t.mission}</TableHead>
@@ -36,6 +39,9 @@ export function FarmingTable({ resources }: { resources: Resource[] }) {
           <TableBody>
             {resources.map((resource) => (
               <TableRow key={resource.id}>
+                <TableCell>
+                  <Image src={resource.icon} alt={resource.name[language]} width={32} height={32} className="rounded-full" />
+                </TableCell>
                 <TableCell className="font-medium">{resource.name[language]}</TableCell>
                 <TableCell>{resource.planet[language]}</TableCell>
                 <TableCell>{resource.mission[language]}</TableCell>

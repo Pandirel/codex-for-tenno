@@ -1,5 +1,7 @@
+
 export interface Resource {
     id: number;
+    icon: string;
     name: {
       es: string;
       en: string;
@@ -21,6 +23,7 @@ export interface Resource {
   const resources: Resource[] = [
     {
       id: 1,
+      icon: '/images/resources/orokin-cell.png',
       name: { es: 'Célula Orokin', en: 'Orokin Cell' },
       planet: { es: 'Ceres / Deimos', en: 'Ceres / Deimos' },
       mission: { es: 'Gabii / Draco', en: 'Gabii / Draco' },
@@ -28,6 +31,7 @@ export interface Resource {
     },
     {
       id: 2,
+      icon: '/images/resources/plastids.png',
       name: { es: 'Plástidos', en: 'Plastids' },
       planet: { es: 'Saturno / Urano', en: 'Saturn / Uranus' },
       mission: { es: 'Helene / Ophelia', en: 'Helene / Ophelia' },
@@ -35,6 +39,7 @@ export interface Resource {
     },
     {
       id: 3,
+      icon: '/images/resources/neurodes.png',
       name: { es: 'Neurodos', en: 'Neurodes' },
       planet: { es: 'Tierra / Deimos', en: 'Earth / Deimos' },
       mission: { es: 'Tikal / Tífon', en: 'Tikal / Typhon' },
@@ -42,6 +47,7 @@ export interface Resource {
     },
     {
       id: 4,
+      icon: '/images/resources/mutagen-mass.png',
       name: { es: 'Masa Mutágena', en: 'Mutagen Mass' },
       planet: { es: 'Deimos / Vacío', en: 'Deimos / Void' },
       mission: { es: 'Terrorem / Taranis', en: 'Terrorem / Taranis' },
@@ -49,6 +55,7 @@ export interface Resource {
     },
     {
         id: 5,
+        icon: '/images/resources/polymer-bundle.png',
         name: { es: 'Paquete de Polímero', en: 'Polymer Bundle' },
         planet: { es: 'Mercurio / Venus', en: 'Mercury / Venus' },
         mission: { es: 'Apollodorus / Malva', en: 'Apollodorus / Malva' },
@@ -56,6 +63,7 @@ export interface Resource {
     },
     {
         id: 6,
+        icon: '/images/resources/gallium.png',
         name: { es: 'Galio', en: 'Gallium' },
         planet: { es: 'Marte / Urano', en: 'Mars / Uranus' },
         mission: { es: 'Ara / Assur', en: 'Ara / Assur' },
@@ -63,13 +71,15 @@ export interface Resource {
     },
     {
         id: 7,
+        icon: '/images/resources/morphics.png',
         name: { es: 'Morfos', en: 'Morphics' },
         planet: { es: 'Marte / Mercurio', en: 'Mars / Mercury' },
         mission: { es: 'Wahiba / Caloris', en: 'Wahiba / Caloris' },
-        notes: { es: 'Escencial para muchas recetas', en: 'Essential for many recipes' },
+        notes: { es: 'Esencial para muchas recetas', en: 'Essential for many recipes' },
     },
     {
         id: 8,
+        icon: '/images/resources/argon-crystal.png',
         name: { es: 'Cristal de Argón', en: 'Argon Crystal' },
         planet: { es: 'Vacío', en: 'Void' },
         mission: { es: 'Taranis / Mot', en: 'Taranis / Mot' },
@@ -77,6 +87,7 @@ export interface Resource {
     },
     {
         id: 9,
+        icon: '/images/resources/tellurium.png',
         name: { es: 'Tellurio', en: 'Tellurium' },
         planet: { es: 'Urano / Neptuno', en: 'Uranus / Neptune' },
         mission: { es: 'Ophelia / Salacia', en: 'Ophelia / Salacia' },
@@ -85,6 +96,7 @@ export interface Resource {
   ];
   
   export function getResources(): Resource[] {
-    return resources;
+    // For now, we will return placeholder icons.
+    // In the future, you can replace these with the actual icons.
+    return resources.map(r => ({ ...r, icon: `https://placehold.co/32x32.png`}));
   }
-  

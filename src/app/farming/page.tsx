@@ -1,4 +1,6 @@
+
 import { FarmingTable } from '@/components/farming-table';
+import { MobileNav } from '@/components/mobile-nav';
 import { MainNav } from '@/components/main-nav';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { WarframeLogo } from '@/components/icons';
@@ -15,13 +17,15 @@ export default function FarmingPage() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-3">
               <WarframeLogo className="h-8 w-8 text-primary" />
-              <h1 className="text-2xl font-bold font-headline tracking-tight">Warframe Codex</h1>
+              <h1 className="text-2xl font-bold font-headline tracking-tight hidden md:block">Warframe Codex</h1>
+              <h1 className="text-2xl font-bold font-headline tracking-tight md:hidden">WFC</h1>
             </div>
             <MainNav />
           </div>
           <div className="flex items-center gap-2">
             <LanguageToggle />
             <ThemeToggle />
+            <MobileNav />
           </div>
         </div>
       </header>
