@@ -30,33 +30,37 @@ export function FarmingTable({ resources }: { resources: Resource[] }) {
       <div className="grid grid-cols-1 gap-4 md:hidden">
         {resources.map((resource) => (
           <Card key={resource.id} className="overflow-hidden">
-            <CardHeader className="flex flex-row items-center gap-4 p-4">
-              <Image 
-                src={resource.icon} 
-                alt={resource.name[language]} 
-                width={56} 
-                height={56} 
-                className="rounded-lg"
-                data-ai-hint="resource icon"
-              />
-              <CardTitle className="text-xl font-headline">{resource.name[language]}</CardTitle>
-            </CardHeader>
-            <CardContent className="p-4 pt-0 space-y-2">
-              <div>
-                <p className="text-sm font-semibold text-muted-foreground">{t.planet}</p>
-                <p>{resource.planet[language]}</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-muted-foreground">{t.mission}</p>
-                <p>{resource.mission[language]}</p>
-              </div>
-              {resource.notes[language] && (
-                <div>
-                  <p className="text-sm font-semibold text-muted-foreground">{t.notes}</p>
-                  <Badge variant="outline">{resource.notes[language]}</Badge>
+            <div className="flex items-center justify-between p-4">
+              <div className="flex-1 pr-4">
+                <CardTitle className="text-xl font-headline mb-4">{resource.name[language]}</CardTitle>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm font-semibold text-muted-foreground">{t.planet}</p>
+                    <p>{resource.planet[language]}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-muted-foreground">{t.mission}</p>
+                    <p>{resource.mission[language]}</p>
+                  </div>
+                  {resource.notes[language] && (
+                    <div>
+                      <p className="text-sm font-semibold text-muted-foreground">{t.notes}</p>
+                      <Badge variant="outline">{resource.notes[language]}</Badge>
+                    </div>
+                  )}
                 </div>
-              )}
-            </CardContent>
+              </div>
+              <div className="flex-shrink-0">
+                <Image 
+                  src={resource.icon} 
+                  alt={resource.name[language]} 
+                  width={80} 
+                  height={80} 
+                  className="rounded-lg object-contain"
+                  data-ai-hint="resource icon"
+                />
+              </div>
+            </div>
           </Card>
         ))}
       </div>
