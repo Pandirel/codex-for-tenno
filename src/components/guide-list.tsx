@@ -14,6 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { getCategoryTranslation } from '@/lib/translations';
 
 
 const categories = ['All', 'Steel Path', 'Beginners', 'Warframes', 'Weapons'];
@@ -70,7 +71,7 @@ export function GuideList({ guides }: { guides: Guide[] }) {
               activeCategory === category && "bg-accent text-accent-foreground"
             )}
           >
-            {language === 'es' ? (category === 'All' ? 'Todos' : category === 'Beginners' ? 'Principiantes' : category) : category}
+            {getCategoryTranslation(category, language)}
           </Button>
         ))}
       </div>
