@@ -1,4 +1,5 @@
 import { GuideList } from '@/components/guide-list';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { WarframeLogo } from '@/components/icons';
 import { getGuides } from '@/data/guides';
 
@@ -13,6 +14,7 @@ export default function Home() {
             <WarframeLogo className="h-8 w-8 text-primary" />
             <h1 className="text-2xl font-bold font-headline tracking-tight">Warframe Codex</h1>
           </div>
+          <ThemeToggle />
         </div>
       </header>
       <main className="container mx-auto max-w-screen-2xl p-4 sm:p-6 md:p-8">

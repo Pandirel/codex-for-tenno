@@ -1,16 +1,26 @@
 export interface Guide {
   id: number;
-  title: string;
+  title: {
+    en: string;
+    es: string;
+  };
   category: 'Steel Path' | 'Beginners' | 'Warframes' | 'Weapons';
-  content: string;
+  content: {
+    en: string;
+    es: string;
+  };
 }
 
 const guides: Guide[] = [
   {
     id: 1,
-    title: 'Guía para Desbloquear el Camino de Acero en Warframe',
+    title: {
+      es: 'Guía para Desbloquear el Camino de Acero en Warframe',
+      en: 'Guide to Unlock the Steel Path in Warframe',
+    },
     category: 'Steel Path',
-    content: `El Camino de Acero es el contenido "endgame" de Warframe, ofreciendo versiones mucho más difíciles de todas las misiones del mapa estelar, con enemigos con niveles incrementados (más de +100 niveles) y defensas mejoradas. A cambio, obtendrás Esencia de Acero, que se puede usar para comprar objetos valiosos de Teshin, incluyendo formas Umbra y modificaciones Galvanizadas.
+    content: {
+      es: `El Camino de Acero es el contenido "endgame" de Warframe, ofreciendo versiones mucho más difíciles de todas las misiones del mapa estelar, con enemigos con niveles incrementados (más de +100 niveles) y defensas mejoradas. A cambio, obtendrás Esencia de Acero, que se puede usar para comprar objetos valiosos de Teshin, incluyendo formas Umbra y modificaciones Galvanizadas.
 
 Requisitos Principales:
 Para desbloquear el Camino de Acero, debes cumplir con los siguientes requisitos:
@@ -93,12 +103,100 @@ Usa Modificaciones Galvanizadas: Una vez que tengas acceso a ellas, úsalas para
 Composiciones de Equipo: Jugar en equipo facilita mucho las cosas. Coordínate con otros Tenno para controlar a los enemigos y maximizar el daño.
 
 ¡Mucha suerte a ti y a tu servidor en su travesía por el Camino de Acero! Es un desafío gratificante que pondrá a prueba sus habilidades y Builds.`,
+      en: `The Steel Path is Warframe's "endgame" content, offering much harder versions of all missions on the star chart, with enemies having increased levels (over +100 levels) and enhanced defenses. In return, you'll get Steel Essence, which can be used to buy valuable items from Teshin, including Umbra Forma and Galvanized mods.
+
+Main Requirements:
+To unlock the Steel Path, you must meet the following requirements:
+
+Complete ALL nodes on the "normal" Star Chart:
+
+This means that every node on every planet, including moons and special zones, must be completed and marked blue on your star chart.
+
+Notable exceptions: The assassination of Mutalist Alad V and Jordas Golem are generally not required. However, make sure you have all the others.
+
+Special zones to consider:
+
+Lua: Make sure you have completed all nodes on Lua.
+
+Kuva Fortress: All nodes must be completed.
+
+Deimos (Albrecht's Laboratories): It's important to complete the nodes that unlock after the "Whispers in the Walls" quest, as they may be a requirement for the Steel Path.
+
+Zariman: You must have completed all nodes on the Zariman. This includes both normal mission nodes (not just circuit rewards) and finishing the "Angels of the Zariman" quest.
+
+Complete Key Story Events (Quests):
+
+Chimera Prologue: This quest is crucial as it unlocks and allows you to defeat the Ropalolyst, which in turn completes the necessary node.
+
+Angels of the Zariman: Completing this quest is essential to unlock the Zariman nodes and, by extension, the Steel Path.
+
+Have completed the three Duviri modes:
+
+Although the Duviri Steel Path is independent of the star chart, to unlock general access to the Steel Path, it has been reported that you need to complete the Murmur Worm at least once in all three Duviri modes:
+
+Circuit: At least one round.
+
+Duviri Experience: Defeat the Worm.
+
+Story Only: Defeat the Worm.
+
+If you have trouble with Duviri, make sure each of these modes has been "recognized" as completed.
+
+How to check if you're missing something?
+Check your star chart: Look for any node that isn't blue. Incomplete nodes sometimes flash blue every few seconds.
+
+Talk to Teshin: Once you think you've met all the requirements, go to any Relay and talk to Teshin (you'll find him in the Conclave area). He will offer you the "Steel Path Honors" option if you are ready. If not, he will tell you what requirements you are missing or that you are not ready yet.
+
+Check your stats profile: In your profile, you can look for "Solar map missions" or similar to see your progress.
+
+Consult the Arbiters of Hexis: Some players have reported that talking to the Arbiters of Hexis NPC can help refresh requirements or even fix some visual "bugs."
+
+Once Unlocked:
+Increased Difficulty: Be prepared for significantly stronger enemies, with +150% health, armor, and shields compared to normal versions, and a 100-level increase (50 in Archwing).
+
+Rewards:
+
+Steel Essence: Obtained by defeating Acolytes that appear during Steel Path missions (they appear randomly) and by completing Daily Steel Path Alerts (5 per day).
+
+Emblems and Trophies: Upon completing each region of the star chart on the Steel Path.
+
+Mastery: You can earn additional mastery by completing each Steel Path node for the first time.
+
+Access to Teshin: Teshin will have a special Steel Path shop where you can spend your Steel Essence on:
+
+Umbra Forma
+
+Galvanized Mods
+
+Veiled Rivens
+
+Orbiter Decorations
+
+And other rotating items.
+
+Tips for the Steel Path:
+Optimized Builds: Your builds need to be much more powerful. Prioritize base damage, critical chance, critical damage, and faction mods (Headhunter, etc.).
+
+Warframe Armor: Invest in your Warframes' survivability with mods like Steel Fiber, Adaptation, Companion Guardian, and damage mitigation or crowd control abilities.
+
+Companions: Companions with support skills or additional damage are very useful (e.g., Smeeta Kavat for double loot, Panzer Vulpaphyla for immortality and spore proliferation).
+
+Use Galvanized Mods: Once you have access to them, use them to further enhance your weapons.
+
+Team Compositions: Playing in a team makes things much easier. Coordinate with other Tenno to control enemies and maximize damage.
+
+Good luck to you and your server on your journey through the Steel Path! It is a rewarding challenge that will test your skills and builds.`,
+    },
   },
   {
     id: 2,
-    title: 'Guía para Nuevos Jugadores en Warframe',
+    title: {
+      es: 'Guía para Nuevos Jugadores en Warframe',
+      en: 'Guide for New Players in Warframe',
+    },
     category: 'Beginners',
-    content: `¡Tus Primeros Pasos en el Sistema Origen!
+    content: {
+      es: `¡Tus Primeros Pasos en el Sistema Origen!
 Warframe es un juego de acción sci-fi con elementos de rol, parkour ninja y mucho looteo. Al principio, la cantidad de sistemas, monedas y cosas por hacer puede parecer infinita, pero con estos pasos, empezarás con el pie derecho.
 
 1. El Tutorial y la Historia Inicial: "El Premio de Vor"
@@ -190,6 +288,99 @@ Tu mejor amigo: La wiki de Warframe (warframe.fandom.com) es una fuente inagotab
 Chat del juego: La comunidad de Warframe es generalmente muy amigable y dispuesta a ayudar. No dudes en preguntar en el chat del juego si tienes dudas.
 
 ¡Disfruta tu viaje, Tenno! Warframe es un juego con una curva de aprendizaje pronunciada, pero muy gratificante una vez que le agarras el truco. Tómate tu tiempo, experimenta y diviértete`,
+      en: `Your First Steps in the Origin System!
+Warframe is a sci-fi action game with RPG elements, ninja parkour, and lots of looting. At first, the amount of systems, currencies, and things to do can seem infinite, but with these steps, you'll get off to a good start.
+
+1. The Tutorial and Initial Story: "Vor's Prize"
+Follow the story: The first quest, "Vor's Prize," is your real tutorial. It will teach you the basics of movement, combat, the Mod system, and how your ship, the Orbiter, works.
+
+Choose your initial Warframe: When you start, you'll be given a choice between Excalibur, Mag, and Volt.
+
+Excalibur: A balanced warframe, with good damage and control abilities. Highly recommended for beginners for its versatility.
+
+Mag: Specializes in manipulating shields and enemies, ideal for the Corpus. Requires a bit more understanding of her abilities.
+
+Volt: Focused on speed and electrical damage, great for defense and area control missions.
+
+Don't stress: You'll eventually be able to get the other two and many more Warframes, so there's no "wrong" choice.
+
+2. Prioritize the Star Chart
+Go planet by planet: Your main goal at the beginning is to unlock all the nodes on each planet of the star chart. Each planet has a series of mission nodes, and by completing them, you'll unlock the Junction that takes you to the next planet.
+
+Junction Rewards: Junctions will give you very important rewards, like Warframe blueprints, key Mods, and segments for your Orbiter that unlock new functionalities (like the Foundry, the Store, the Mod Module, etc.).
+
+Resources: By completing missions and advancing, you'll collect resources (Ferrite, Rubedo, Alloys, etc.) that are essential for crafting weapons, Warframes, and other items in your Orbiter's Foundry.
+
+3. Understand the Mod System: Your Source of Power!
+Mods are key: In Warframe, true power doesn't come from leveling up your Warframes and weapons, but from the Mods you equip and level up.
+
+Types of Mods:
+
+Base Damage: Mods like Serration (for rifles), Hornet Strike (for pistols), Pressure Point (for melee) are fundamental. Level them up as much as you can.
+
+Elements: Combine heat, cold, electricity, and toxin mods to create combined elemental damages (e.g., Heat + Toxin = Viral Damage, very good against enemy health).
+
+Survivability: For Warframes, mods like Vitality (health), Redirection (shields), and Steel Fiber (armor) are essential.
+
+Efficiency/Duration/Range/Strength (Warframes): These mods directly affect your Warframe abilities. Experiment to see what works best with each one.
+
+Mod Capacity: A Warframe's or weapon's mod capacity increases as it levels up. Slots with a polarity (specific symbols) reduce the cost of mods that match that polarity.
+
+4. Spend Your Initial Platinum Wisely
+Slots, Slots, Slots: Your initial 50 Platinum (the premium currency) should be used to buy Warframe slots and weapon slots. This is vital because your initial inventory is very limited, and you don't want to sell Warframes or weapons just to make space.
+
+Avoid buying gear directly: Most Warframes and weapons can be crafted with in-game resources. Buying them with Platinum is an expensive shortcut for new players.
+
+5. Join a Clan
+Benefits: Clans offer access to exclusive Warframe, weapon, and archwing blueprints that can only be researched in the Clan Dojo.
+
+Community: A good clan can be an invaluable source of advice, help with missions, and squadmates to play with. Look for active clans in the recruitment chat or on the forums.
+
+6. Manage Your Resources and Crafting
+The Foundry: Use the Foundry in your Orbiter to craft everything. Blueprints are obtained from missions, bosses, the store, the Dojo, etc.
+
+Crafting Time: Items in the Foundry take time (Warframes 3 days, Warframe parts 12 hours, weapons 12 or 24 hours). Make sure you always have something crafting.
+
+Don't sell everything: Some resources that seem useless at first will be vital later. If you're not sure, save them!
+
+7. Complete the Quests
+The story is great: Warframe has one of the best stories in gaming, but it's hidden behind quests. Follow the main questline (marked in your Codex) to unlock new mechanics, Warframes, and delve deeper into the lore.
+
+Suggested order of main quests:
+
+Vor's Prize (you'll have already done it).
+
+The Second Dream
+
+The War Within
+
+Chains of Harrow
+
+The Sacrifice
+
+The New War
+
+These are crucial for understanding the story and unlocking endgame content.
+
+8. What is Mastery Rank (MR)?
+Leveling up MR: Mastery Rank is your overall level in Warframe. You raise it by leveling up Warframes, weapons, companions, archwings, K-Drives, and completing star chart nodes.
+
+MR Benefits: Each new rank gives you more initial mod capacity on your items (before adding Mods), more syndicate standing, more daily trades, and, most importantly, unlocks access to more weapons and Warframes.
+
+"Farming MR": Once you level an item to 30, it gives you Mastery. Many players build and level up as many weapons and Warframes as possible to increase their MR quickly.
+
+9. Don't Get Overwhelmed with Open World Content
+Cetus (Plains of Eidolon) and Fortuna (Orb Vallis): Although accessible early, the content in these open-world areas (Eidolon hunting, Bounties, Fishing, Mining) is designed for players with stronger Mods and more developed gear.
+
+Come back later: It's a good idea to visit them to unlock fast travel and some quests, but don't feel pressured to "farm" there until you have decent gear. The normal star chart is your initial priority.
+
+10. Use the Warframe Wiki
+Your best friend: The Warframe wiki (warframe.fandom.com) is an inexhaustible source of information. Don't know where to find a resource? How to get a Warframe? What a Mod does? The wiki has it all!
+
+In-game chat: The Warframe community is generally very friendly and willing to help. Don't hesitate to ask in the in-game chat if you have questions.
+
+Enjoy your journey, Tenno! Warframe is a game with a steep learning curve, but it's very rewarding once you get the hang of it. Take your time, experiment, and have fun.`,
+    },
   },
 ];
 
