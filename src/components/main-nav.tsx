@@ -3,40 +3,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-
+import { useLanguage } from '@/context/language-context';
 
 export function MainNav() {
   const pathname = usePathname();
-  const [language, setLanguage] = useState<'en' | 'es'>('es');
-
-  const links = {
-    es: [
-      { href: '/', label: 'Guías' },
-      { href: '/farming', label: 'Recursos' },
-    ],
-    en: [
-      { href: '/', label: 'Guides' },
-      { href: '/farming', label: 'Resources' },
-    ],
-  };
-
-  const navLinks = links[language] || links.es;
-
-  // Note: A simple solution for now. A more robust solution would use a global state/context.
-  if (typeof window !== 'undefined') {
-    const lang = window.localStorage.getItem('language');
-    if(lang && lang !== language) {
-        setLanguage(lang as 'es' | 'en');
-    }
-  }
+  const { language, translations } = useLanguage();
+  const navLinks = translations.nav;
 
   return (
     <nav className="hidden md:flex items-center gap-6 text-sm font-medium">

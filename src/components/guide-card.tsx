@@ -19,9 +19,13 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from './ui/scroll-area';
+import { useLanguage } from '@/context/language-context';
 import { getCategoryTranslation } from '@/lib/translations';
 
-export function GuideCard({ guide, language }: { guide: Guide, language: 'en' | 'es' }) {
+export function GuideCard({ guide }: { guide: Guide }) {
+  const { language, translations } = useLanguage();
+  const t = translations.guides;
+
   const title = guide.title[language];
   const content = guide.content[language];
   const category = guide.category;
@@ -38,9 +42,9 @@ export function GuideCard({ guide, language }: { guide: Guide, language: 'en' | 
     <Card className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1">
       <CardHeader>
         <CardTitle className="font-headline tracking-tight">{title}</CardTitle>
-        <CardDescription>
+        <div className="text-sm text-muted-foreground pt-1">
             <Badge variant="secondary">{getCategoryTranslation(category, language)}</Badge>
-        </CardDescription>
+        </div>
       </CardHeader>
       <CardContent className="flex-grow">
         <p className="text-muted-foreground line-clamp-4">
@@ -50,7 +54,7 @@ export function GuideCard({ guide, language }: { guide: Guide, language: 'en' | 
       <CardFooter>
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="outline" className='w-full'>{language === 'es' ? 'Leer Más' : 'Read More'}</Button>
+            <Button variant="outline" className='w-full'>{t.readMore}</Button>
           </DialogTrigger>
           <DialogContent className="max-w-6xl h-[90vh]">
             <DialogHeader>
@@ -60,7 +64,7 @@ export function GuideCard({ guide, language }: { guide: Guide, language: 'en' | 
               </div>
             </DialogHeader>
             <ScrollArea className="flex-grow h-full pr-6 -mr-6">
-                <div className="guide-content text-foreground/90 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: content }} />
+                <div className="guide-content text-foreground/90" dangerouslySetInnerHTML={{ __html: content }} />
             </ScrollArea>
           </DialogContent>
         </Dialog>

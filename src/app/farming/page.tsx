@@ -3,6 +3,7 @@ import { MainNav } from '@/components/main-nav';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { WarframeLogo } from '@/components/icons';
 import { getResources } from '@/data/resources';
+import { LanguageToggle } from '@/components/language-toggle';
 
 export default function FarmingPage() {
   const resources = getResources();
@@ -18,7 +19,10 @@ export default function FarmingPage() {
             </div>
             <MainNav />
           </div>
-          <ThemeToggle />
+          <div className="flex items-center gap-2">
+            <LanguageToggle />
+            <ThemeToggle />
+          </div>
         </div>
       </header>
       <main className="container mx-auto max-w-screen-2xl p-4 sm:p-6 md:p-8">
