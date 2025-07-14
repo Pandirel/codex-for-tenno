@@ -26,6 +26,12 @@ export function GuideCard({ guide, language }: { guide: Guide, language: 'en' | 
   const title = guide.title[language];
   const content = guide.content[language];
   const category = guide.category;
+
+  const getSummary = (htmlContent: string) => {
+    const firstParagraph = htmlContent.split('</p>')[0];
+    const textContent = firstParagraph.replace(/<[^>]*>?/gm, '');
+    return textContent.split('\n\n')[1] || textContent.split('\n\n')[0] || '';
+  };
   
   return (
     <Card className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1">
@@ -37,7 +43,7 @@ export function GuideCard({ guide, language }: { guide: Guide, language: 'en' | 
       </CardHeader>
       <CardContent className="flex-grow">
         <p className="text-muted-foreground line-clamp-4">
-            {content.split('\n\n')[1] || content.split('\n\n')[0]}
+            {getSummary(content)}
         </p>
       </CardContent>
       <CardFooter>
