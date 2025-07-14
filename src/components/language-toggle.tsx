@@ -21,7 +21,7 @@ export function LanguageToggle() {
                   <Globe className="h-[1.2rem] w-[1.2rem]" />
                   <span className="sr-only">Toggle language</span>
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent align="end">
                 <SelectItem value="es">Es</SelectItem>
                 <SelectItem value="en">En</SelectItem>
             </SelectContent>
