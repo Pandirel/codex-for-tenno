@@ -6,8 +6,21 @@ import { ThemeToggle } from '@/components/theme-toggle';
 import { WarframeLogo } from '@/components/icons';
 import { getResources } from '@/data/resources';
 import { LanguageToggle } from '@/components/language-toggle';
+import { useLanguage } from '@/context/language-context';
+import { HelpCircle } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 export default function FarmingPage() {
+  const resources = getResources();
+
+  return (
+    <FarmingPageComponent />
+  );
+}
+
+function FarmingPageComponent() {
+  const { translations } = useLanguage();
+  const t = translations;
   const resources = getResources();
 
   return (
@@ -34,9 +47,21 @@ export default function FarmingPage() {
       </main>
       <footer className="py-6 md:px-8 md:py-0">
         <div className="container flex flex-col items-center justify-center gap-4 md:h-24 md:flex-row">
-          <p className="text-balance text-center text-sm leading-loose text-muted-foreground">
-            Built by a Tenno. The future of Warframe guidance is here.
-          </p>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-balance text-center text-sm leading-loose text-muted-foreground">
+              {t.footer.mainText}
+            </p>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <HelpCircle className="h-4 w-4 text-muted-foreground/80 hover:text-muted-foreground" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{t.footer.tooltipText}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
         </div>
       </footer>
     </div>

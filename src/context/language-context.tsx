@@ -25,6 +25,10 @@ const textContent = {
         mission: 'Misión Recomendada',
         notes: 'Notas',
     },
+    footer: {
+      mainText: 'Construido por un Tenno. El futuro de la orientación en Warframe está aquí.',
+      tooltipText: 'Estas son mini guías y consejos para jugadores que inician su aventura en Warframe.',
+    },
     language: 'Idioma'
   },
   en: {
@@ -46,6 +50,10 @@ const textContent = {
         planet: 'Planet',
         mission: 'Recommended Mission',
         notes: 'Notes',
+    },
+    footer: {
+      mainText: 'Built by a Tenno. The future of Warframe guidance is here.',
+      tooltipText: 'These are mini guides and tips for players starting their adventure in Warframe.',
     },
     language: 'Language'
   }
@@ -72,14 +80,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const setLanguage = (newLanguage: Language) => {
-    setLanguageState(newLanguage);
-    localStorage.setItem('language', newLanguage);
+    if (newLanguage === 'en' || newLanguage === 'es') {
+      setLanguageState(newLanguage);
+      localStorage.setItem('language', newLanguage);
+    }
   };
   
   const translations = textContent[language] || textContent.es;
 
+  // Render children only after the component has mounted to avoid hydration mismatch
   if (!isMounted) {
-    return null; 
+    return null;
   }
 
   return (

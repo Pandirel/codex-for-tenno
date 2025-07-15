@@ -6,8 +6,19 @@ import { ThemeToggle } from '@/components/theme-toggle';
 import { WarframeLogo } from '@/components/icons';
 import { getGuides } from '@/data/guides';
 import { LanguageToggle } from '@/components/language-toggle';
+import { useLanguage } from '@/context/language-context';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { HelpCircle } from 'lucide-react';
 
 export default function Home() {
+  return (
+    <HomePageComponent/>
+  );
+}
+
+function HomePageComponent() {
+  const { translations } = useLanguage();
+  const t = translations;
   const guides = getGuides();
 
   return (
@@ -34,9 +45,21 @@ export default function Home() {
       </main>
       <footer className="py-6 md:px-8 md:py-0">
         <div className="container flex flex-col items-center justify-center gap-4 md:h-24 md:flex-row">
-          <p className="text-balance text-center text-sm leading-loose text-muted-foreground">
-            Built by a Tenno. The future of Warframe guidance is here.
-          </p>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-balance text-center text-sm leading-loose text-muted-foreground">
+              {t.footer.mainText}
+            </p>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <HelpCircle className="h-4 w-4 text-muted-foreground/80 hover:text-muted-foreground" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{t.footer.tooltipText}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
         </div>
       </footer>
     </div>
