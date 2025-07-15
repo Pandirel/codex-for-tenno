@@ -1,4 +1,6 @@
 
+'use client';
+
 import { FarmingTable } from '@/components/farming-table';
 import { MobileNav } from '@/components/mobile-nav';
 import { MainNav } from '@/components/main-nav';
@@ -11,14 +13,6 @@ import { HelpCircle } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 export default function FarmingPage() {
-  const resources = getResources();
-
-  return (
-    <FarmingPageComponent />
-  );
-}
-
-function FarmingPageComponent() {
   const { translations } = useLanguage();
   const t = translations;
   const resources = getResources();

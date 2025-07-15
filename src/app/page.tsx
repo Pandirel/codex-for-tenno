@@ -1,4 +1,6 @@
 
+'use client';
+
 import { GuideList } from '@/components/guide-list';
 import { MobileNav } from '@/components/mobile-nav';
 import { MainNav } from '@/components/main-nav';
@@ -11,12 +13,6 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 import { HelpCircle } from 'lucide-react';
 
 export default function Home() {
-  return (
-    <HomePageComponent/>
-  );
-}
-
-function HomePageComponent() {
   const { translations } = useLanguage();
   const t = translations;
   const guides = getGuides();
