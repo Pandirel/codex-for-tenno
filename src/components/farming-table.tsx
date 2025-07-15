@@ -23,14 +23,24 @@ export function FarmingTable({ resources }: { resources: Resource[] }) {
     <div className="flex flex-col gap-8">
       <div>
         <h2 className="text-3xl font-bold font-headline tracking-tight">{t.title}</h2>
-        <p className="text-muted-foreground mt-2">{t.description}</p>
+        <p className="text-muted-foreground mt-2">
+          {t.description}{' '}
+          <a 
+            href="https://warframe.fandom.com/wiki/Resources#Recommended_Farming_Locations" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-accent hover:underline"
+          >
+            {t.wikiLinkText}
+          </a>.
+        </p>
       </div>
 
       {/* Tarjetas para vista móvil */}
       <div className="grid grid-cols-1 gap-4 md:hidden">
         {resources.map((resource) => (
           <Card key={resource.id} className="overflow-hidden">
-            <div className="flex items-center justify-between p-4">
+            <div className="flex items-center p-4">
               <div className="flex-1 pr-4">
                 <CardTitle className="text-xl font-headline mb-4">{resource.name[language]}</CardTitle>
                 <div className="space-y-3">

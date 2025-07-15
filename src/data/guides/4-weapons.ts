@@ -10,7 +10,7 @@ export const weaponsGuide: Guide = {
   content: {
     es: `
 <p>Tu arsenal es tan importante como tu Warframe. Descubre cómo conseguir las mejores armas y convertirlas en máquinas de destrucción masiva. 🔫💥</p>
-<img src="/images/guides/EN/NewPlayer/SelectWarframeEN.webp" data-ai-hint="warframe arsenal" alt="Arsenal de Warframe" class="rounded-lg my-4"/>
+<img src="/images/guides/EN/WeaponsG/WArsenalEN.webp" data-ai-hint="warframe arsenal" alt="Arsenal de Warframe" class="rounded-lg my-4"/>
 <h3>1. Tipos de Armas y Dónde Encontrarlas 🗺️</h3>
 <p>Las armas en Warframe se consiguen de varias maneras:</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
@@ -22,9 +22,9 @@ export const weaponsGuide: Guide = {
 </ul>
 <h3>2. El Ciclo de Mejora: Mods, Catalizadores y Formas ⚙️</h3>
 <p>Un arma de nivel 30 sin mods es inútil. El verdadero poder viene de su mejora:</p>
-<img src="/images/guides/EN/Wea/SelectWarframeEN.webp" data-ai-hint="warframe weapon modding" alt="Modding de arma" class="rounded-lg my-4"/>
+<img src="/images/guides/ES/BuildES.webp" data-ai-hint="warframe weapon modding" alt="Modding de arma" class="rounded-lg my-4"/>
 <ul class="list-disc pl-5 space-y-2 my-4">
-    <li><b>Mods Esenciales:</b> Empieza siempre con daño base (<i>Serración</i>), multi-disparo (<i>Cámara Dividida</i>), probabilidad y daño crítico.</li>
+    <li><b>Mods Esenciales:</b> Empieza siempre con daño base (<i>Sierra</i>), multi-disparo (<i>Cámara Dividida</i>), probabilidad y daño crítico.</li>
     <li><b>Catalizador Orokin (Papa):</b> Duplica la capacidad de mods de un arma, de 30 a 60. ¡Es la mejora más importante que puedes hacer!</li>
     <li><b>Forma:</b> Permite añadir una polaridad a una ranura de mod. Si la polaridad del mod coincide, su coste se reduce a la mitad. Usar una Forma reinicia el nivel del arma a 0, pero es esencial para builds de alto nivel.</li>
 </ul>

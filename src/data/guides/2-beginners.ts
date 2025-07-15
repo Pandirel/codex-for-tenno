@@ -17,17 +17,17 @@ export const beginnersGuide: Guide = {
     <li><b>Mag:</b> Controla escudos y enemigos.</li>
     <li><b>Volt:</b> Rápido y con daño eléctrico.</li>
 </ul>
-<img src="https://placehold.co/600x300.png" data-ai-hint="warframe starter" alt="Warframes iniciales" class="rounded-lg my-4"/>
+<img src="/images/guides/EN/NewPlayer/SelectWarframeEN.webp" data-ai-hint="warframe starter" alt="Warframes iniciales" class="rounded-lg my-4"/>
 <h3>2. Prioriza el Mapa Estelar 🗺️</h3>
-<p>Tu objetivo principal es desbloquear todos los planetas. Completa todos los nodos de una región para acceder a la siguiente a través de los Cruces. ¡Los cruces dan recompensas muy importantes!</p>
+<p>Tu objetivo principal es desbloquear todos los planetas. Completa todos los nodos de una región para acceder a la siguiente a través de las Convergencias. ¡Las convergencias dan recompensas muy importantes!</p>
 <h3>3. El Poder de los Mods 🃏</h3>
 <p>El verdadero poder en Warframe viene de los <b>Mods</b> que equipas en tus armas y warframes.</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
-    <li><b>Mods de Daño Base:</b> Como <i>Serración</i>, son fundamentales.</li>
+    <li><b>Mods de Daño Base:</b> Como <i>Sierra</i>, son fundamentales.</li>
     <li><b>Mods Elementales:</b> Combina elementos para crear efectos poderosos (ej. Viral).</li>
     <li><b>Mods de Supervivencia:</b> <i>Vitalidad</i> (salud) y <i>Redirección</i> (escudos) son esenciales.</li>
 </ul>
-<img src="https://placehold.co/600x250.png" data-ai-hint="warframe mods" alt="Pantalla de mods" class="rounded-lg my-4"/>
+<img src="/images/guides/ES/ModsES.webp"data-ai-hint="warframe mods" alt="Pantalla de mods" class="rounded-lg my-4"/>
 <h3>4. Gasta tu Platinum Inicial Sabiamente 💎</h3>
 <p>Usa tus 50 Platinum iniciales para comprar <b>ranuras de Warframe y de armas</b>. ¡Son cruciales para expandir tu arsenal! No compres armas o Warframes directamente.</p>
 <h3>5. Únete a un Clan 🤝</h3>

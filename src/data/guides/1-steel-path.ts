@@ -10,21 +10,21 @@ export const steelPathGuide: Guide = {
   content: {
     es: `
 <p>El Camino de Acero es el contenido "endgame" de Warframe, ofreciendo versiones mucho más difíciles de todas las misiones del mapa estelar. A cambio, obtendrás Esencia de Acero para comprar objetos valiosos. 🦾</p>
-<img src="/images/guides/steel-path-banner.png" data-ai-hint="warframe steel path" alt="Banner del Camino de Acero" class="rounded-lg my-4"/>
+<img src="/images/guides/ES/ACES.webp" data-ai-hint="warframe steel path" alt="Banner del Camino de Acero" class="rounded-lg my-4"/>
 <h3>Requisitos Principales ✅</h3>
 <p>Para desbloquear el Camino de Acero, debes cumplir con los siguientes requisitos:</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>Completar TODOS los nodos del Mapa Estelar "normal":</b> Cada nodo de cada planeta debe estar completado.</li>
     <li><b>Zonas especiales a tener en cuenta:</b> Lua, Fortaleza Kuva, Deimos (Laboratorios de Albrecht) y Zariman deben estar completamente explorados.</li>
     <li><b>Completar Aventuras Clave:</b> "Prólogo de la Quimera" y "Ángeles del Zariman" son cruciales.</li>
-    <li><b>Completar los tres modos de Duviri:</b> Es necesario completar al menos una vez el Gusano de Murmur en el Circuito, Experiencia Duviri y Solo Historia.</li>
+    <li><b>Completar los tres modos de Duviri:</b> El Circuito, Experiencia Duviri y Solo Historia. Es necesario completar al menos una vez el Gusano Orowyrm en Experiencia Duviri y Solo Historia. </li>
 </ul>
 <h3>¿Cómo verificar si te falta algo? 🤔</h3>
 <ul class="list-disc pl-5 space-y-2 my-4">
-    <li><b>Revisa tu mapa estelar:</b> Busca cualquier nodo que no esté azul.</li>
+    <li><b>Revisa tu mapa estelar:</b> Busca nodos que estén en color azul y completalo.</li>
     <li><b>Habla con Teshin:</b> En cualquier Repetidor, Teshin te dirá si estás listo o qué te falta.</li>
 </ul>
-<img src="https://placehold.co/600x300.png" data-ai-hint="warframe teshin" alt="Teshin en el repetidor" class="rounded-lg my-4"/>
+<img src="/images/guides/ES/TeshinES.webp"data-ai-hint="warframe teshin" alt="Teshin en el repetidor" class="rounded-lg my-4"/>
 <h3>Una vez Desbloqueado 💥</h3>
 <p>Prepárate para enemigos significativamente más fuertes, con +150% de salud, armadura y escudos.</p>
 <h4>Recompensas Notables:</h4>

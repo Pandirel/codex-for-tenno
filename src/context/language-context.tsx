@@ -18,7 +18,8 @@ const textContent = {
     },
     farming: {
         title: 'Tabla de Farmeo de Recursos',
-        description: 'Encuentra las mejores ubicaciones para farmear los recursos más importantes.',
+        description: 'Encuentra las mejores ubicaciones para farmear los recursos más importantes. Para más información, revisa la',
+        wikiLinkText: 'wiki',
         resource: 'Recurso',
         planet: 'Planeta',
         mission: 'Misión Recomendada',
@@ -39,7 +40,8 @@ const textContent = {
     },
     farming: {
         title: 'Resource Farming Table',
-        description: 'Find the best locations to farm the most important resources.',
+        description: 'Find the best locations to farm the most important resources. For more information, check the',
+        wikiLinkText: 'wiki',
         resource: 'Resource',
         planet: 'Planet',
         mission: 'Recommended Mission',
@@ -62,11 +64,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     const storedLanguage = localStorage.getItem('language') as Language | null;
     if (storedLanguage && (storedLanguage === 'en' || storedLanguage === 'es')) {
       setLanguageState(storedLanguage);
     }
-    setIsMounted(true);
   }, []);
 
   const setLanguage = (newLanguage: Language) => {
@@ -77,7 +79,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const translations = textContent[language] || textContent.es;
 
   if (!isMounted) {
-    return null; // O un spinner/skeleton si se prefiere
+    return null; 
   }
 
   return (

@@ -17,13 +17,13 @@ export const newWarframesGuide: Guide = {
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>The Jackal (Venus):</b> Suelta los componentes de <b>Rhino</b>.</li>
     <li><b>Vay Hek (Tierra):</b> Suelta los componentes de <b>Hydroid</b>.</li>
-    <li><b>Concejales (Júpiter):</b> Sueltan los componentes de <b>Valkyr</b>.</li>
+    <li><b>Alad V (Júpiter):</b> Sueltan los componentes de <b>Valkyr</b>.</li>
 </ul>
 <p>Una vez que tienes los tres planos de componentes, puedes comprar el plano principal del Warframe en el Mercado por Créditos y construirlo en la Forja.</p>
 <img src="/images/guides/EN/WarframesG/FoundryEN.webp" data-ai-hint="warframe crafting" alt="Mesa de crafteo" class="rounded-lg my-4"/>
 <h3>Método 2: El Circuito de Duviri 🌀</h3>
 <p>Una de las formas más consistentes de obtener Warframes es a través del Circuito en Duviri. Cada semana, tendrás la opción de elegir uno de tres Warframes en la rotación. A medida que completes las fases del Circuito, obtendrás todos los componentes necesarios para construirlo.</p>
-<img src="https://placehold.co/600x300.png" data-ai-hint="warframe circuit" alt="El Circuito de Duviri" class="rounded-lg my-4"/>
+<img src="/images/guides/ES/CircuitoES.webp" data-ai-hint="warframe circuit" alt="El Circuito de Duviri" class="rounded-lg my-4"/>
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>Rotación Semanal:</b> Revisa cada semana para ver qué Warframes están disponibles.</li>
 </ul>
@@ -56,13 +56,13 @@ export const newWarframesGuide: Guide = {
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>The Jackal (Venus):</b> Drops <b>Rhino</b>'s components.</li>
     <li><b>Vay Hek (Earth):</b> Drops <b>Hydroid</b>'s components.</li>
-    <li><b>Councilors (Jupiter):</b> Drop <b>Valkyr</b>'s components.</li>
+    <li><b>Alad V (Jupiter):</b> Drop <b>Valkyr</b>'s components.</li>
 </ul>
 <p>Once you have the three component blueprints, you can buy the main Warframe blueprint from the Market for Credits and build it in the Foundry.</p>
 <img src="/images/guides/EN/WarframesG/FoundryEN.webp" data-ai-hint="warframe crafting" alt="Crafting Bench" class="rounded-lg my-4"/>
 <h3>Method 2: The Duviri Circuit 🌀</h3>
 <p>One of the most consistent ways to get Warframes is through the Circuit in Duviri. Each week, you'll have the option to choose one of three Warframes in the rotation. As you complete the stages of the Circuit, you will obtain all the necessary components to build it.</p>
-<img src="https://placehold.co/600x300.png" data-ai-hint="warframe circuit" alt="The Duviri Circuit" class="rounded-lg my-4"/>
+<img src="/images/guides/EN/WarframesG/CircuitEN.webp" data-ai-hint="warframe circuit" alt="The Duviri Circuit" class="rounded-lg my-4"/>
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>Weekly Rotation:</b> Check each week to see which Warframes are available.</li>
 </ul>
