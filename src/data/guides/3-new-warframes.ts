@@ -1,3 +1,4 @@
+
 import type { Guide } from '@/models/guide';
 
 export const newWarframesGuide: Guide = {
@@ -22,9 +23,9 @@ export const newWarframesGuide: Guide = {
 <img src="/images/guides/EN/WarframesG/FoundryEN.webp" data-ai-hint="warframe crafting" alt="Mesa de crafteo" class="rounded-lg my-4"/>
 <h3>Método 2: El Circuito de Duviri 🌀</h3>
 <p>Una de las formas más consistentes de obtener Warframes es a través del Circuito en Duviri. Cada semana, tendrás la opción de elegir uno de tres Warframes en la rotación. A medida que completes las fases del Circuito, obtendrás todos los componentes necesarios para construirlo.</p>
+<img src="https://placehold.co/600x300.png" data-ai-hint="warframe circuit" alt="El Circuito de Duviri" class="rounded-lg my-4"/>
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>Rotación Semanal:</b> Revisa cada semana para ver qué Warframes están disponibles.</li>
-    <li><b>Camino de Acero:</b> Jugar el Circuito en el Camino de Acero te permite obtener dos Warframes por semana al ofrecer una selección separada.</li>
 </ul>
 <h3>Método 3: Investigación en el Dojo del Clan 🔬</h3>
 <p>Unirte a un clan te da acceso a laboratorios de investigación donde puedes replicar los planos de muchos Warframes y armas. ¡Algunos Warframes son exclusivos del Dojo!</p>
@@ -61,9 +62,9 @@ export const newWarframesGuide: Guide = {
 <img src="/images/guides/EN/WarframesG/FoundryEN.webp" data-ai-hint="warframe crafting" alt="Crafting Bench" class="rounded-lg my-4"/>
 <h3>Method 2: The Duviri Circuit 🌀</h3>
 <p>One of the most consistent ways to get Warframes is through the Circuit in Duviri. Each week, you'll have the option to choose one of three Warframes in the rotation. As you complete the stages of the Circuit, you will obtain all the necessary components to build it.</p>
+<img src="https://placehold.co/600x300.png" data-ai-hint="warframe circuit" alt="The Duviri Circuit" class="rounded-lg my-4"/>
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>Weekly Rotation:</b> Check each week to see which Warframes are available.</li>
-    <li><b>Steel Path:</b> Playing the Circuit on the Steel Path allows you to obtain two Warframes per week by offering a separate selection.</li>
 </ul>
 <h3>Method 3: Clan Dojo Research 🔬</h3>
 <p>Joining a clan gives you access to research labs where you can replicate the blueprints for many Warframes and weapons. Some Warframes are exclusive to the Dojo!</p>
