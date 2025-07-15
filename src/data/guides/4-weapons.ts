@@ -10,7 +10,7 @@ export const weaponsGuide: Guide = {
   content: {
     es: `
 <p>Tu arsenal es tan importante como tu Warframe. Descubre cómo conseguir las mejores armas y convertirlas en máquinas de destrucción masiva. 🔫💥</p>
-<img src="https://placehold.co/600x400.png" data-ai-hint="warframe arsenal" alt="Arsenal de Warframe" class="rounded-lg my-4"/>
+<img src="/images/guides/EN/NewPlayer/SelectWarframeEN.webp" data-ai-hint="warframe arsenal" alt="Arsenal de Warframe" class="rounded-lg my-4"/>
 <h3>1. Tipos de Armas y Dónde Encontrarlas 🗺️</h3>
 <p>Las armas en Warframe se consiguen de varias maneras:</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
@@ -22,7 +22,7 @@ export const weaponsGuide: Guide = {
 </ul>
 <h3>2. El Ciclo de Mejora: Mods, Catalizadores y Formas ⚙️</h3>
 <p>Un arma de nivel 30 sin mods es inútil. El verdadero poder viene de su mejora:</p>
-<img src="https://placehold.co/600x300.png" data-ai-hint="warframe weapon modding" alt="Modding de arma" class="rounded-lg my-4"/>
+<img src="/images/guides/EN/Wea/SelectWarframeEN.webp" data-ai-hint="warframe weapon modding" alt="Modding de arma" class="rounded-lg my-4"/>
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>Mods Esenciales:</b> Empieza siempre con daño base (<i>Serración</i>), multi-disparo (<i>Cámara Dividida</i>), probabilidad y daño crítico.</li>
     <li><b>Catalizador Orokin (Papa):</b> Duplica la capacidad de mods de un arma, de 30 a 60. ¡Es la mejora más importante que puedes hacer!</li>
@@ -45,7 +45,7 @@ export const weaponsGuide: Guide = {
 <p>¡Experimenta con diferentes armas, encuentra tu estilo de juego y nunca dejes de mejorar tu arsenal!</p>`,
     en: `
 <p>Your arsenal is just as important as your Warframe. Discover how to get the best weapons and turn them into machines of mass destruction. 🔫💥</p>
-<img src="https://placehold.co/600x400.png" data-ai-hint="warframe arsenal" alt="Warframe Arsenal" class="rounded-lg my-4"/>
+<img src="/images/guides/EN/WeaponsG/WArsenalEN.webp" data-ai-hint="warframe arsenal" alt="Warframe Arsenal" class="rounded-lg my-4"/>
 <h3>1. Types of Weapons and Where to Find Them 🗺️</h3>
 <p>Weapons in Warframe are obtained in several ways:</p>
 <ul class="list-disc pl-5 space-y-2 my-4">
@@ -57,7 +57,7 @@ export const weaponsGuide: Guide = {
 </ul>
 <h3>2. The Upgrade Cycle: Mods, Catalysts, and Forma ⚙️</h3>
 <p>A level 30 weapon without mods is useless. The real power comes from upgrading it:</p>
-<img src="https://placehold.co/600x300.png" data-ai-hint="warframe weapon modding" alt="Weapon Modding" class="rounded-lg my-4"/>
+<img src="/images/guides/EN/WeaponsG/BuildEN.webp" data-ai-hint="warframe weapon modding" alt="Weapon Modding" class="rounded-lg my-4"/>
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>Essential Mods:</b> Always start with base damage (<i>Serration</i>), multishot (<i>Split Chamber</i>), critical chance, and critical damage.</li>
     <li><b>Orokin Catalyst (Potato):</b> Doubles a weapon's mod capacity from 30 to 60. It's the most important upgrade you can make!</li>

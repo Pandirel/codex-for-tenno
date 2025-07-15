@@ -59,12 +59,14 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>('es');
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     const storedLanguage = localStorage.getItem('language') as Language | null;
     if (storedLanguage && (storedLanguage === 'en' || storedLanguage === 'es')) {
       setLanguageState(storedLanguage);
     }
+    setIsMounted(true);
   }, []);
 
   const setLanguage = (newLanguage: Language) => {
@@ -73,6 +75,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
   
   const translations = textContent[language] || textContent.es;
+
+  if (!isMounted) {
+    return null; // O un spinner/skeleton si se prefiere
+  }
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, translations }}>

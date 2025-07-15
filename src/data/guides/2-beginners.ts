@@ -44,7 +44,7 @@ export const beginnersGuide: Guide = {
     <li><b>Mag:</b> Controls shields and enemies.</li>
     <li><b>Volt:</b> Fast and with electrical damage.</li>
 </ul>
-<img src="https://placehold.co/600x300.png" data-ai-hint="warframe starter" alt="Starter Warframes" class="rounded-lg my-4"/>
+<img src="/images/guides/EN/NewPlayer/SelectWarframeEN.webp" data-ai-hint="warframe starter" alt="Starter Warframes" class="rounded-lg my-4"/>
 <h3>2. Prioritize the Star Chart 🗺️</h3>
 <p>Your main goal is to unlock all the planets. Complete all the nodes in a region to access the next one through the Junctions. Junctions give very important rewards!</p>
 <h3>3. The Power of Mods 🃏</h3>
@@ -54,7 +54,7 @@ export const beginnersGuide: Guide = {
     <li><b>Elemental Mods:</b> Combine elements to create powerful effects (e.g., Viral).</li>
     <li><b>Survivability Mods:</b> <i>Vitality</i> (health) and <i>Redirection</i> (shields) are essential.</li>
 </ul>
-<img src="https://placehold.co/600x250.png" data-ai-hint="warframe mods" alt="Mods screen" class="rounded-lg my-4"/>
+<img src="/images/guides/EN/NewPlayer/ModsEN.webp" data-ai-hint="warframe mods" alt="Mods screen" class="rounded-lg my-4"/>
 <h3>4. Spend Your Initial Platinum Wisely 💎</h3>
 <p>Use your initial 50 Platinum to buy <b>Warframe and weapon slots</b>. They are crucial to expand your arsenal! Do not buy weapons or Warframes directly.</p>
 <h3>5. Join a Clan 🤝</h3>
