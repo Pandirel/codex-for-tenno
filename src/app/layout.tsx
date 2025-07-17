@@ -4,8 +4,8 @@ import { LanguageProvider } from '@/context/language-context';
 import { Toaster } from '@/components/ui/toaster';
 
 const title = 'Codex for Tenno';
-const description = 'A collection of guides and tips for Warframe.';
-const url = 'https://codexfortenno.com'; // Replace with your actual domain
+const description = 'A collection of guides and tips for new Warframe players.';
+const url = 'https://codexftenno.com'; // Replace with your actual domain
 
 export const metadata: Metadata = {
   title: title,
@@ -17,19 +17,13 @@ export const metadata: Metadata = {
     url: url,
     images: [
       {
-        url: 'https://placehold.co/1200x630.png', // Replace with your actual image URL
-        width: 1200,
-        height: 630,
-        alt: 'Codex for Tenno Banner',
+        url: 'https://media.discordapp.net/attachments/829820621142753300/1395284319248842792/metaicon.png?ex=6879e348&is=687891c8&hm=f70a304e782f81d2b4d52fbc432daaaf5018513bb2c9704304ca5dc985e5e358&=&format=webp&quality=lossless&width=192&height=192', // Replace with your actual image URL
+        width: 50,
+        height: 70,
+        alt: 'Codex for Tenno Icon',
       },
     ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: title,
-    description: description,
-    images: ['https://placehold.co/1200x630.png'], // Replace with your actual image URL
-  },
+  }
 };
 
 export default function RootLayout({
