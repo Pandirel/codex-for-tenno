@@ -3,9 +3,33 @@ import './globals.css';
 import { LanguageProvider } from '@/context/language-context';
 import { Toaster } from '@/components/ui/toaster';
 
+const title = 'Codex for Tenno';
+const description = 'A collection of guides and tips for Warframe.';
+const url = 'https://codexfortenno.com'; // Replace with your actual domain
+
 export const metadata: Metadata = {
-  title: 'Codex for Tenno',
-  description: 'A collection of guides and tips for Warframe.',
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    type: 'website',
+    url: url,
+    images: [
+      {
+        url: 'https://placehold.co/1200x630.png', // Replace with your actual image URL
+        width: 1200,
+        height: 630,
+        alt: 'Codex for Tenno Banner',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    images: ['https://placehold.co/1200x630.png'], // Replace with your actual image URL
+  },
 };
 
 export default function RootLayout({
