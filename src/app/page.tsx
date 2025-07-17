@@ -5,12 +5,14 @@ import { GuideList } from '@/components/guide-list';
 import { MobileNav } from '@/components/mobile-nav';
 import { MainNav } from '@/components/main-nav';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { WarframeLogo } from '@/components/icons';
+import { WarframeLogo, DiscordIcon } from '@/components/icons';
 import { getGuides } from '@/data/guides';
 import { LanguageToggle } from '@/components/language-toggle';
 import { useLanguage } from '@/context/language-context';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { HelpCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function Home() {
   const { translations } = useLanguage();
@@ -30,6 +32,12 @@ export default function Home() {
              <MainNav />
           </div>
           <div className="flex items-center gap-2">
+            <Link href="https://discord.gg/4ybwBjma" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon">
+                <DiscordIcon className="h-[1.2rem] w-[1.2rem]" />
+                <span className="sr-only">Discord</span>
+              </Button>
+            </Link>
             <LanguageToggle />
             <ThemeToggle />
             <MobileNav />
