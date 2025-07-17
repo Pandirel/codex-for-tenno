@@ -28,7 +28,7 @@ export function MobileNav() {
             <SheetTitle>
               <div className="flex items-center gap-3">
                 <WarframeLogo className="h-8 w-8 text-primary" />
-                <span className="text-2xl font-bold font-headline tracking-tight">Warframe Codex</span>
+                <span className="text-2xl font-bold font-headline tracking-tight">Codex for Tenno</span>
               </div>
             </SheetTitle>
           </SheetHeader>
