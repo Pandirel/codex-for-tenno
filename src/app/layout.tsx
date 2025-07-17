@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     url: url,
     images: [
       {
-        url: 'https://media.discordapp.net/attachments/829820621142753300/1395284319248842792/metaicon.png?ex=6879e348&is=687891c8&hm=f70a304e782f81d2b4d52fbc432daaaf5018513bb2c9704304ca5dc985e5e358&=&format=webp&quality=lossless&width=192&height=192', // Replace with your actual image URL
-        width: 50,
-        height: 70,
+        url: 'https://media.discordapp.net/attachments/829820621142753300/1395284319248842792/metaicon.png?ex=6879e348&is=687891c8&hm=f70a304e782f81d2b4d52fbc432daaaf5018513bb2c9704304ca5dc985e5e358&=&format=webp&quality=lossless&width=655&height=655', // Replace with your actual image URL
+        width: 2400,
+        height: 1260,
         alt: 'Codex for Tenno Icon',
       },
     ],
