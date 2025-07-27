@@ -19,6 +19,10 @@ export const steelPathGuide: Guide = {
     <li><b>Completar Aventuras Clave:</b> "Prólogo de la Quimera" y "Ángeles del Zariman" son cruciales.</li>
     <li><b>Completar los tres modos de Duviri:</b> El Circuito, Experiencia Duviri y Solo Historia. Es necesario completar al menos una vez el Gusano Orowyrm en Experiencia Duviri y Solo Historia. </li>
 </ul>
+<div class="p-4 bg-muted/50 border-l-4 border-accent rounded-r-lg my-4">
+    <p class="font-semibold">Nota:</p>
+    <p class="text-sm text-muted-foreground">Aunque algunas aventuras como "Ángeles del Zariman" ya no son un requisito estricto, es muy recomendable completarlas para evitar errores y tener una experiencia completa.</p>
+</div>
 <h3>¿Cómo verificar si te falta algo? 🤔</h3>
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>Revisa tu mapa estelar:</b> Busca nodos que estén en color azul y completalo.</li>
@@ -52,6 +56,10 @@ export const steelPathGuide: Guide = {
     <li><b>Complete Key Quests:</b> "Chimera Prologue" and "Angels of the Zariman" are crucial.</li>
     <li><b>Complete the three Duviri modes:</b> You need to complete the Murmur Worm at least once in The Circuit, The Duviri Experience, and The Lone Story.</li>
 </ul>
+<div class="p-4 bg-muted/50 border-l-4 border-accent rounded-r-lg my-4">
+    <p class="font-semibold">Note:</p>
+    <p class="text-sm text-muted-foreground">Although some quests like "Angels of the Zariman" are no longer a strict requirement, it is highly recommended to complete them to avoid issues and for the full experience.</p>
+</div>
 <h3>How to check if you're missing something? 🤔</h3>
 <ul class="list-disc pl-5 space-y-2 my-4">
     <li><b>Check your star chart:</b> Look for any node that isn't blue.</li>
