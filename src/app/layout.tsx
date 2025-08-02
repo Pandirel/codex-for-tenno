@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { LanguageProvider } from '@/context/language-context';
 import { Toaster } from '@/components/ui/toaster';
+import { Analytics } from '@vercel/analytics/react';
 
 const title = 'Codex for Tenno';
 const description = 'A collection of guides and tips for new Warframe players.';
@@ -18,8 +19,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: 'https://media.discordapp.net/attachments/829820621142753300/1395284319248842792/metaicon.png?ex=6879e348&is=687891c8&hm=f70a304e782f81d2b4d52fbc432daaaf5018513bb2c9704304ca5dc985e5e358&=&format=webp&quality=lossless&width=655&height=655', // Replace with your actual image URL
-        width: 2400,
-        height: 1260,
+        width: 70,
+        height: 50,
         alt: 'Codex for Tenno Icon',
       },
     ],
@@ -44,6 +45,7 @@ export default function RootLayout({
         <LanguageProvider>
           {children}
           <Toaster />
+          <Analytics />
         </LanguageProvider>
       </body>
     </html>
