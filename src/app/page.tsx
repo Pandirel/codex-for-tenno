@@ -32,7 +32,7 @@ export default function Home() {
              <MainNav />
           </div>
           <div className="flex items-center gap-2">
-            <Link href="https://discord.gg/4ybwBjma" target="_blank" rel="noopener noreferrer">
+            <Link href="https://discord.gg/THJBKX9SzT" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="icon">
                 <DiscordIcon className="h-[1.2rem] w-[1.2rem]" />
                 <span className="sr-only">Discord</span>
