@@ -26,8 +26,8 @@ const textContent = {
         notes: 'Notas',
     },
     footer: {
-      mainText: 'Construido por un Tenno. El futuro de la orientación en Warframe está aquí.',
-      tooltipText: 'Estas son mini guías y consejos para jugadores que inician su aventura en Warframe.',
+      mainText: 'Recuerda, el verdadero endgame de Warframe es la lectura.',
+      tooltipText: 'Estas son mini guías y tips para jugadores que inician su aventura en Warframe.',
     },
     language: 'Idioma'
   },
@@ -52,7 +52,7 @@ const textContent = {
         notes: 'Notes',
     },
     footer: {
-      mainText: 'Built by a Tenno. The future of Warframe guidance is here.',
+      mainText: 'Remember, the true endgame of Warframe is reading.',
       tooltipText: 'These are mini guides and tips for players starting their adventure in Warframe.',
     },
     language: 'Language'
