@@ -1,24 +1,14 @@
 import type { SVGProps } from 'react';
 
 export const WarframeLogo = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M12 2L6 8V16L12 22L18 16V8L12 2Z" />
-    <path d="M12 12L6 8" />
-    <path d="M12 12L18 8" />
-    <path d="M12 12V22" />
-    <path d="M12 12L10 17L12 22L14 17L12 12Z" />
-    <path d="M6 8L2 12L6 16" />
-    <path d="M18 8L22 12L18 16" />
-  </svg>
+    <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 24 24" 
+        fill="currentColor"
+        {...props}
+    >
+        <path d="M12 2L2 12l10 10 10-10L12 2zM6.414 12L12 6.414 17.586 12 12 17.586 6.414 12zM12 4.828L19.172 12 12 19.172 4.828 12 12 4.828zM12 8.242l-2.829 2.829L12 13.9l2.828-2.829L12 8.242z"/>
+    </svg>
 );
 
 export const DiscordIcon = (props: SVGProps<SVGSVGElement>) => (
