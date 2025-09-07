@@ -39,7 +39,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
-        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z' /%3E%3Cpath d='M12 2v20' /%3E%3Cpath d='M12 12c-3.75 0-7.5 3-7.5 6' /%3E%3Cpath d='M12 12c3.75 0 7.5 3 7.5 6' /%3E%3Cpath d='M12 12c-3.75 0-7.5-3-7.5-6' /%3E%3Cpath d='M12 12c3.75 0 7.5-3 7.5-6' /%3E%3C/svg%3E" type="image/svg+xml" />
+        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L6 8V16L12 22L18 16V8L12 2Z' /%3E%3Cpath d='M12 12L6 8' /%3E%3Cpath d='M12 12L18 8' /%3E%3Cpath d='M12 12V22' /%3E%3Cpath d='M12 12L10 17L12 22L14 17L12 12Z' /%3E%3Cpath d='M6 8L2 12L6 16' /%3E%3Cpath d='M18 8L22 12L18 16' /%3E%3C/svg%3E" type="image/svg+xml" />
       </head>
       <body className="font-body antialiased">
         <LanguageProvider>

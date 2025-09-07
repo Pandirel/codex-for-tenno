@@ -6,17 +6,18 @@ export const WarframeLogo = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="1.5"
+    strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
     {...props}
   >
-    <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z" />
-    <path d="M12 2v20" />
-    <path d="M12 12c-3.75 0-7.5 3-7.5 6" />
-    <path d="M12 12c3.75 0 7.5 3 7.5 6" />
-    <path d="M12 12c-3.75 0-7.5-3-7.5-6" />
-    <path d="M12 12c3.75 0 7.5-3 7.5-6" />
+    <path d="M12 2L6 8V16L12 22L18 16V8L12 2Z" />
+    <path d="M12 12L6 8" />
+    <path d="M12 12L18 8" />
+    <path d="M12 12V22" />
+    <path d="M12 12L10 17L12 22L14 17L12 12Z" />
+    <path d="M6 8L2 12L6 16" />
+    <path d="M18 8L22 12L18 16" />
   </svg>
 );
 
