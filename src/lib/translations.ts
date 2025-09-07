@@ -9,6 +9,7 @@ export const getCategoryTranslation = (category: string, language: 'en' | 'es'):
     'Beginners': 'Principiantes',
     'Warframes': 'Warframes',
     'Weapons': 'Armas',
+    'Rivens': 'Rivens',
   };
 
   return translations[category] || category;

@@ -11,7 +11,7 @@ import { useLanguage } from '@/context/language-context';
 import { getCategoryTranslation } from '@/lib/translations';
 
 
-const categories = ['All', 'Steel Path', 'Beginners', 'Warframes', 'Weapons'];
+const categories = ['All', 'Steel Path', 'Beginners', 'Warframes', 'Weapons', 'Rivens'];
 
 export function GuideList({ guides }: { guides: Guide[] }) {
   const [searchTerm, setSearchTerm] = useState('');
