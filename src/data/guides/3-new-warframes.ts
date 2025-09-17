@@ -8,7 +8,7 @@ export const newWarframesGuide: Guide = {
     en: 'Guide: How to Get New Warframes',
   },
   category: 'Warframes',
-  creationDate: '2024-07-23',
+  creationDate: '2024-07-28',
   content: {
     es: `
 <p>Ampliar tu arsenal de Warframes es una parte fundamental de la experiencia de juego. Cada Warframe ofrece un estilo de juego único, y aquí te explicamos cómo conseguirlos. ✨</p>
