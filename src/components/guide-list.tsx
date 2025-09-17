@@ -48,11 +48,10 @@ export function GuideList({ guides }: { guides: Guide[] }) {
         {categories.map(category => (
           <Button
             key={category}
-            variant="outline"
+            variant={activeCategory === category ? 'default' : 'outline'}
             onClick={() => setActiveCategory(category)}
             className={cn(
-              "capitalize",
-              activeCategory === category && "bg-accent text-accent-foreground"
+              "capitalize"
             )}
           >
             {getCategoryTranslation(category, language)}
