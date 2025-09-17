@@ -13,6 +13,8 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 import { HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/components/ui/button';
 
 export default function Home() {
   const { translations } = useLanguage();
@@ -32,11 +34,14 @@ export default function Home() {
              <MainNav />
           </div>
           <div className="flex items-center gap-2">
-            <Link href="https://discord.gg/THJBKX9SzT" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="icon">
-                <DiscordIcon className="h-[1.2rem] w-[1.2rem]" />
-                <span className="sr-only">Discord</span>
-              </Button>
+            <Link 
+              href="https://discord.gg/THJBKX9SzT" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={cn(buttonVariants({variant: "outline", size: "icon"}), "hover:bg-transparent hover:text-foreground")}
+            >
+              <DiscordIcon className="h-[1.2rem] w-[1.2rem]" />
+              <span className="sr-only">Discord</span>
             </Link>
             <LanguageToggle />
             <ThemeToggle />

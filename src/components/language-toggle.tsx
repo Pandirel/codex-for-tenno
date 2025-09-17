@@ -20,6 +20,7 @@ export function LanguageToggle() {
             <SelectTrigger 
               className={cn(
                 buttonVariants({ variant: "outline", size: "icon" }),
+                "hover:bg-transparent hover:text-foreground"
               )}
               hideChevron={true}
             >
