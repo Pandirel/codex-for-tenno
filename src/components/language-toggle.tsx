@@ -19,8 +19,7 @@ export function LanguageToggle() {
         <Select onValueChange={(value: 'es' | 'en') => setLanguage(value)} defaultValue={language}>
             <SelectTrigger 
               className={cn(
-                buttonVariants({ variant: "outline", size: "icon" }),
-                "hover:bg-transparent hover:text-foreground"
+                buttonVariants({ variant: "outline", size: "icon" })
               )}
               hideChevron={true}
             >
