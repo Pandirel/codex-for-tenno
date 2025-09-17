@@ -7,7 +7,7 @@ export const steelPathGuide: Guide = {
     en: 'Guide to Unlock the Steel Path',
   },
   category: 'Steel Path',
-  creationDate: '2025-09-12',
+  creationDate: '2025-07-15',
   content: {
     es: `
 <p>El Camino de Acero es el contenido "endgame" de Warframe, ofreciendo versiones mucho más difíciles de todas las misiones del mapa estelar. A cambio, obtendrás Esencia de Acero para comprar objetos valiosos. 🦾</p>

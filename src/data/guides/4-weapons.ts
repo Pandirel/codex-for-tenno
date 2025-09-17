@@ -7,7 +7,7 @@ export const weaponsGuide: Guide = {
     en: 'Weapons Guide: How to Get and Improve Your Arsenal',
   },
   category: 'Weapons',
-  creationDate: '2025-09-15',
+  creationDate: '2025-07-16',
   content: {
     es: `
 <p>Tu arsenal es tan importante como tu Warframe. Descubre cómo conseguir las mejores armas y convertirlas en máquinas de destrucción masiva. 🔫💥</p>
