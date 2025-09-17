@@ -38,7 +38,7 @@ export default function FarmingPage() {
               href="https://discord.gg/4ybwBjma" 
               target="_blank" 
               rel="noopener noreferrer"
-              className={cn(buttonVariants({variant: "outline", size: "icon"}), "hover:bg-transparent hover:text-foreground")}
+              className={cn(buttonVariants({variant: "outline", size: "icon"}))}
             >
               <DiscordIcon className="h-[1.2rem] w-[1.2rem]" />
               <span className="sr-only">Discord</span>
