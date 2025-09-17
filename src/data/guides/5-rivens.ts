@@ -7,7 +7,7 @@ export const rivensGuide: Guide = {
     en: 'Rivens Guide: Understanding "Good/God Rolls"',
   },
   category: 'Rivens',
-  creationDate: '2024-07-30',
+  creationDate: '2025-07-30',
   content: {
     es: `
 <p>Los Mods Agrietados (Rivens) pueden ser confusos, pero esta guía te ayudará a entender qué estadísticas (stats) buscar para tener un Riven "bueno" o "dios". riven.cv les puede ayudar a ver los precios de los mods agrietados.</p>
