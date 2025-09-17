@@ -82,7 +82,7 @@ export interface Resource {
         icon: '/images/resources/ArgonCrystal.webp',
         name: { es: 'Cristal de Argón', en: 'Argon Crystal' },
         planet: { es: 'Vacío', en: 'Void' },
-        mission: { es: 'Taranis / Mot', en: 'Taranis / Mot' },
+        mission: { es: 'Hepit / Mot', en: 'Hepit / Mot' },
         notes: { es: '¡Decae cada 24 horas!', en: 'Decays every 24 hours!' },
     },
     {

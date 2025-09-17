@@ -40,7 +40,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className={cn(buttonVariants({variant: "outline", size: "icon"}))}
             >
-              <DiscordIcon className="h-[1.2rem] w-[1.2rem]" />
+              <DiscordIcon className="" />
               <span className="sr-only">Discord</span>
             </Link>
             <LanguageToggle />
