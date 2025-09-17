@@ -7,6 +7,7 @@ export const beginnersGuide: Guide = {
     en: 'Guide for New Players in Warframe',
   },
   category: 'Beginners',
+  creationDate: '2024-07-22',
   content: {
     es: `
 <p>¡Tus Primeros Pasos en el Sistema Origen! 🚀 Warframe puede ser abrumador al principio, ¡pero esta guía te ayudará a empezar con el pie derecho!</p>
