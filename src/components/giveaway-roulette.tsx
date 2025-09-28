@@ -14,10 +14,98 @@ export function GiveawayRoulette() {
   const { translations } = useLanguage();
   const t = translations.giveaway;
   const { toast } = useToast();
-  const [participants, setParticipants] = useState<string[]>([]);
+  
+  const [participants, setParticipants] = useState<string[]>(['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6']);
   const [newParticipant, setNewParticipant] = useState('');
   const [winner, setWinner] = useState<string | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
+  const [rotation, setRotation] = useState(0);
+
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const colors = ['#FFC107', '#FF5722', '#4CAF50', '#2196F3', '#9C27B0', '#E91E63'];
+
+  const drawRoulette = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const numParticipants = participants.length;
+    if (numParticipants === 0) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      return;
+    };
+    
+    const arc = Math.PI * 2 / numParticipants;
+    const radius = canvas.width / 2;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.translate(radius, radius);
+    ctx.rotate(rotation);
+
+    for (let i = 0; i < numParticipants; i++) {
+      const angle = i * arc;
+      ctx.beginPath();
+      ctx.fillStyle = colors[i % colors.length];
+      ctx.moveTo(0, 0);
+      ctx.arc(0, 0, radius * 0.95, angle, angle + arc);
+      ctx.lineTo(0, 0);
+      ctx.fill();
+      
+      ctx.save();
+      ctx.fillStyle = 'white';
+      ctx.font = 'bold 16px Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const textAngle = angle + arc / 2;
+      ctx.rotate(textAngle);
+      const text = participants[i];
+      const maxTextWidth = radius * 0.7;
+      let fontSize = 16;
+      ctx.font = `bold ${fontSize}px Arial`;
+      while (ctx.measureText(text).width > maxTextWidth && fontSize > 8) {
+          fontSize--;
+          ctx.font = `bold ${fontSize}px Arial`;
+      }
+      ctx.fillText(text, radius * 0.55, 0);
+      ctx.restore();
+    }
+    ctx.restore();
+
+    // Draw pointer
+    ctx.fillStyle = '#FF0000';
+    ctx.beginPath();
+    ctx.moveTo(radius - 15, 0);
+    ctx.lineTo(radius + 15, 0);
+    ctx.lineTo(radius, 30);
+    ctx.closePath();
+    ctx.fill();
+
+  }, [participants, rotation]);
+
+  useEffect(() => {
+    const handleResize = () => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const container = canvas.parentElement;
+        if (container) {
+            const size = Math.min(container.clientWidth, 500);
+            canvas.width = size;
+            canvas.height = size;
+            drawRoulette();
+        }
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, [drawRoulette]);
+
+  useEffect(() => {
+    drawRoulette();
+  }, [participants, rotation, drawRoulette]);
+
 
   const handleAddParticipant = () => {
     if (newParticipant && !participants.includes(newParticipant)) {
@@ -26,7 +114,7 @@ export function GiveawayRoulette() {
     } else if (participants.includes(newParticipant)) {
         toast({
             title: "Error",
-            description: "Este participante ya está en la lista.",
+            description: t.add,
             variant: "destructive",
         });
     }
@@ -40,18 +128,54 @@ export function GiveawayRoulette() {
     if (participants.length < 2) {
         toast({
             title: "Error",
-            description: "Necesitas al menos 2 participantes para girar la ruleta.",
+            description: t.add,
             variant: "destructive",
         });
         return;
     }
-    // Lógica de giro y selección de ganador irá aquí
+    setIsSpinning(true);
+    setWinner(null);
+    
+    const winnerIndex = Math.floor(Math.random() * participants.length);
+    const arc = Math.PI * 2 / participants.length;
+    
+    const stopAngle = (winnerIndex * arc) + (arc / 2);
+    
+    const randomSpins = 5 + Math.random() * 5;
+    const targetRotation = (Math.PI * 2 * randomSpins) - stopAngle + (Math.PI / 2);
+
+    let start: number | null = null;
+    const duration = 5000; // 5 seconds spin
+    const initialRotation = rotation % (Math.PI * 2);
+
+    const animate = (timestamp: number) => {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+        
+        const easeOutQuint = (t: number) => 1 - Math.pow(1 - t, 5);
+        const t = Math.min(progress / duration, 1);
+        const easedT = easeOutQuint(t);
+
+        const newRotation = initialRotation + (targetRotation - initialRotation) * easedT;
+        setRotation(newRotation);
+        
+        if (progress < duration) {
+            requestAnimationFrame(animate);
+        } else {
+            setRotation(targetRotation);
+            setWinner(participants[winnerIndex]);
+            setIsSpinning(false);
+        }
+    };
+
+    requestAnimationFrame(animate);
   };
 
   const handleReset = () => {
     setParticipants([]);
     setWinner(null);
     setIsSpinning(false);
+    setRotation(0);
   };
   
   return (
@@ -59,16 +183,16 @@ export function GiveawayRoulette() {
       {/* Columna de la Ruleta */}
       <div className="flex-grow flex flex-col items-center justify-center gap-4 w-full lg:w-2/3">
         <div 
-          className="relative w-full max-w-[300px] md:max-w-[500px] aspect-square rounded-full border-4 border-primary/50 bg-card flex items-center justify-center"
+          className="relative w-full max-w-[500px] aspect-square flex items-center justify-center"
         >
-           <p className="text-muted-foreground">La ruleta aparecerá aquí</p>
+           <canvas ref={canvasRef} />
         </div>
         <div className="flex items-center gap-4">
           <Button onClick={handleSpin} disabled={isSpinning || participants.length < 2}>
             {isSpinning ? t.spinning : t.spin}
           </Button>
           <Button onClick={handleReset} variant="outline">
-            Resetear
+            {t.reset}
           </Button>
         </div>
         {winner && !isSpinning && (
@@ -91,7 +215,7 @@ export function GiveawayRoulette() {
                 onKeyDown={e => e.key === 'Enter' && handleAddParticipant()}
                 placeholder={t.addParticipant}
               />
-              <Button onClick={handleAddParticipant}>Añadir</Button>
+              <Button onClick={handleAddParticipant}>{t.add}</Button>
             </div>
             <ScrollArea className="h-96">
                 <div className="space-y-2 pr-4">
@@ -107,7 +231,7 @@ export function GiveawayRoulette() {
                 ) : (
                     <div className="flex flex-col items-center justify-center text-center p-8 text-muted-foreground">
                         <Ticket className="h-12 w-12 mb-2" />
-                        <p>Añade participantes para empezar el sorteo.</p>
+                        <p>{t.addParticipantsPrompt}</p>
                     </div>
                 )}
                 </div>
