@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -11,7 +11,8 @@ import { useLanguage } from '@/context/language-context';
 
 const initialParticipants = [
   'SpaceNinja_01', 'VoidRunner7', 'GrineerSlayer', 'CorpusHunterX',
-  'TennoSpecter', 'LotusBlade', 'WarframeFanatic', 'OrokinGold'
+  'TennoSpecter', 'LotusBlade', 'WarframeFanatic', 'OrokinGold',
+  'NovaPrimeFan', 'ExcalUmbra', 'MesaMain', 'SarynFTW'
 ];
 
 export function GiveawayRoulette() {
@@ -47,11 +48,12 @@ export function GiveawayRoulette() {
     
     const baseRotations = 5;
     const itemAngle = 360 / totalParticipants;
-    // We adjust the angle to point to the middle of the segment
-    const winnerAngle = winnerIndex * itemAngle + itemAngle / 2;
+    // Adjust the angle to point to the middle of the winner's segment
+    const winnerAngle = winnerIndex * itemAngle;
     
+    // Add a random offset within the winner's segment for variability
     const randomOffset = (Math.random() - 0.5) * itemAngle * 0.8;
-    const finalRotation = (baseRotations * 360) + (360 - winnerAngle) + randomOffset;
+    const finalRotation = (baseRotations * 360) + (360 - winnerAngle) - (itemAngle / 2) + randomOffset;
     
     const duration = 6000 + Math.random() * 2000;
     setSpinDuration(duration);
@@ -74,27 +76,55 @@ export function GiveawayRoulette() {
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
       <div className="lg:col-span-2 flex flex-col items-center justify-center gap-8 p-4">
         <div className="relative w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] md:w-[600px] md:h-[600px]">
+          {/* The Pointer */}
           <div 
-            className={cn("absolute inset-0 rounded-full border-4 border-primary/50 transition-transform", isSpinning && 'animate-spin-roulette duration-ease-out-cubic')} 
+            className="absolute top-1/2 -right-4 md:-right-5 -translate-y-1/2 z-20"
+            style={{ filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.5))' }}
+          >
+             <svg width="40" height="40" viewBox="0 0 10 10" className="text-accent fill-current">
+                <polygon points="10,5 2,0 2,10" />
+            </svg>
+          </div>
+          
+          <div 
+            className={cn(
+              "relative w-full h-full rounded-full border-2 border-border overflow-hidden",
+              isSpinning && 'animate-spin-roulette duration-ease-out-cubic'
+            )} 
             style={wheelStyle}
           >
             {participants.map((name, index) => {
               const angle = itemAngle * index;
-              const textAngle = -90 - (itemAngle / 2);
+              const textRotation = itemAngle / 2;
+              const bgColor = index % 2 === 0 ? 'bg-background' : 'bg-muted';
+              
               return (
-                <div 
-                  key={name}
-                  className="absolute w-full h-full"
-                  style={{ transform: `rotate(${angle}deg)` }}
+                <div
+                  key={`${name}-${index}`}
+                  className={cn(
+                    "absolute w-1/2 h-1/2 origin-bottom-right transform-gpu",
+                    bgColor
+                  )}
+                  style={{
+                    transform: `rotate(${angle}deg)`,
+                    clipPath: `polygon(0 0, 100% 0, 100% 100%, 0 0)` ,
+                  }}
                 >
-                  <div 
-                    className="absolute w-1/2 h-1/2 top-1/4 left-1/4 origin-bottom-left flex items-center justify-center"
-                    style={{ transform: `rotate(${itemAngle/2}deg)`}}
+                   <div
+                    className="absolute w-full h-full border-l border-border/50"
+                    style={{
+                      transform: `rotate(${itemAngle}deg)`,
+                      transformOrigin: 'bottom right',
+                    }}
+                  />
+                  <div
+                    className="absolute w-full h-full flex items-center justify-end pr-[15%]"
+                    style={{
+                        transform: `rotate(${textRotation}deg)`,
+                        transformOrigin: 'bottom right'
+                    }}
                   >
-                    <span 
-                      className="text-sm md:text-base font-semibold text-foreground/80 transform -translate-y-1/2"
-                      style={{ transform: `rotate(${textAngle}deg) translateY(-140px) ` }}
-                    >
+                    <span className="text-sm md:text-base font-semibold text-foreground/80 transform -rotate-90 -translate-x-1/4 origin-center whitespace-nowrap">
                       {name}
                     </span>
                   </div>
@@ -102,18 +132,11 @@ export function GiveawayRoulette() {
               );
             })}
           </div>
+
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full bg-card border-2 border-border shadow-lg flex items-center justify-center">
-              <Ticket className="w-10 h-10 sm:w-16 sm:h-16 text-primary" />
+            <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-card border-2 border-primary/50 shadow-lg flex items-center justify-center">
+              <Ticket className="w-8 h-8 sm:w-12 sm:h-12 text-primary" />
             </div>
-          </div>
-          <div 
-            className="absolute top-1/2 -right-2 sm:-right-4 -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 text-accent"
-            style={{ filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.5))' }}
-          >
-            <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full">
-              <polygon points="100,50 20,0 20,100" />
-            </svg>
           </div>
         </div>
 
