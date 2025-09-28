@@ -10,6 +10,7 @@ const textContent = {
     nav: [
       { href: '/', label: 'Guías' },
       { href: '/farming', label: 'Recursos' },
+      { href: '/giveaways', label: 'Sorteos' },
     ],
     guides: {
         searchPlaceholder: 'Buscar una guía...',
@@ -26,6 +27,17 @@ const textContent = {
         mission: 'Misión Recomendada',
         notes: 'Notas',
     },
+    giveaways: {
+      title: 'Sorteo de la Comunidad',
+      description: 'Participa en nuestros sorteos exclusivos para miembros del servidor de Discord.',
+      prize: 'Premio Actual',
+      participants: 'Participantes',
+      joinButton: '¡Participar!',
+      leaveButton: 'Salir del Sorteo',
+      drawWinnerButton: 'Sortear Ganador',
+      winnerTitle: '¡Felicidades!',
+      noParticipants: 'Aún no hay participantes.'
+    },
     footer: {
       mainText: 'Recuerda, el verdadero endgame de Warframe es la lectura.',
       tooltipText: 'Estas son mini guías y tips para jugadores que inician su aventura en Warframe.',
@@ -36,6 +48,7 @@ const textContent = {
     nav: [
         { href: '/', label: 'Guides' },
         { href: '/farming', label: 'Resources' },
+        { href: '/giveaways', label: 'Giveaways' },
     ],
     guides: {
         searchPlaceholder: 'Search for a guide...',
@@ -51,6 +64,17 @@ const textContent = {
         planet: 'Planet',
         mission: 'Recommended Mission',
         notes: 'Notes',
+    },
+    giveaways: {
+      title: 'Community Giveaway',
+      description: 'Participate in our exclusive giveaways for Discord server members.',
+      prize: 'Current Prize',
+      participants: 'Participants',
+      joinButton: 'Join!',
+      leaveButton: 'Leave Giveaway',
+      drawWinnerButton: 'Draw Winner',
+      winnerTitle: 'Congratulations!',
+      noParticipants: 'No participants yet.'
     },
     footer: {
       mainText: 'Remember, the true endgame of Warframe is reading.',
