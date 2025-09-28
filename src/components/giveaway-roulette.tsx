@@ -23,7 +23,7 @@ export function GiveawayRoulette() {
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const colors = ['#FFC107', '#FF5722', '#4CAF50', '#2196F3', '#9C27B0', '#E91E63'];
+  const colors = ['#FFC107', '#FF5722', '#4CAF50', '#2196F3', '#9C27B0', '#E91E63', '#F44336', '#00BCD4', '#FF9800'];
 
   const drawRoulette = useCallback(() => {
     const canvas = canvasRef.current;
@@ -80,7 +80,7 @@ export function GiveawayRoulette() {
     ctx.closePath();
     ctx.fill();
 
-  }, [participants, rotation]);
+  }, [participants, rotation, colors]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -134,20 +134,51 @@ export function GiveawayRoulette() {
     setWinner(null);
     
     const winnerIndex = Math.floor(Math.random() * participants.length);
-    const arc = (2 * Math.PI) / participants.length;
+    const numParticipants = participants.length;
+    const arc = (2 * Math.PI) / numParticipants;
     
-    // The pointer is at the top (-90 degrees or -PI/2).
-    // The start of slice 0 is at 0 degrees.
-    // We want the middle of the winner's slice to be under the pointer.
-    // Middle of winner's slice is at angle: `(winnerIndex * arc) + (arc / 2)`
-    // To align this angle with the top pointer, we need to rotate by -that_angle.
-    // The top pointer is at -PI/2, so the final rotation should be:
+    // The top pointer is at -Math.PI / 2 (or 270 degrees).
+    // The middle of the winner's slice is at angle: (winnerIndex * arc) + (arc / 2)
+    // To align this slice with the top pointer, we need to rotate so that this middle angle ends up at -Math.PI / 2.
+    // The required rotation is -(middle_angle). Then we add the pointer's position.
+    // However, since we are rotating the whole canvas, it's simpler:
+    // targetAngle = - (winnerIndex * arc) - (arc / 2); //This would align it to 0 degrees (3 o'clock)
+    // To align it to the top (12 o'clock), we must add 90 degrees or PI/2.
+    // No, wait. The canvas rotation is what we are setting. If we want slice N to be at the top,
+    // the total rotation should be -(angle of slice N's middle).
+    // Angle of slice N's middle is winnerIndex * arc + arc/2
+    // So target = - (winnerIndex * arc + arc/2)
+    // The pointer is at 12 o'clock, which corresponds to an angle of Math.PI / 2 for the segments below.
+    // Let's rethink.
+    // The pointer is at 12 o'clock. We want the middle of segment `winnerIndex` to land there.
+    // The middle of segment `i` is at `i * arc + arc / 2`.
+    // The wheel starts at 3 o'clock (0 rad).
+    // To get the middle of segment `winnerIndex` to the top (12 o'clock, which is -PI/2 or 3*PI/2), we need to rotate it by:
+    // `target_position - start_position` => `3*PI/2 - (winnerIndex * arc + arc/2)`
+    // This is the final angle. But we rotate clockwise. So it's negative.
     const stopAngle = (winnerIndex * arc) + (arc / 2);
-    const finalAngle = -stopAngle + (Math.PI / 2);
+    
+    // Final angle should be such that after rotation, `stopAngle` is at the top (which is 1.5*PI or -0.5*PI from the 0-rad x-axis)
+    // Let R be the final rotation. The new angle of `stopAngle` is `stopAngle + R`. We want `stopAngle + R = 1.5 * PI`.
+    // No, that's not right. The drawing context rotates.
+    // The final angle of the context should be `finalRotation`. The pointer is fixed.
+    // The middle of the winning slice should align with the pointer.
+    // The pointer is at 12 o'clock. In a standard cartesian plane, that is PI/2. But in canvas, Y is inverted, so it's -PI/2 or 1.5*PI.
+    // Let's call the top 0. A rotation of `theta` moves a point from `p` to `p+theta`.
+    // The winning slice middle is at `(winnerIndex * arc) + (arc / 2)`.
+    // We want to rotate the canvas so that this angle lands at the top pointer.
+    // The pointer is at -PI/2.
+    // finalAngle = -((winnerIndex * arc) + (arc / 2)) + PI/2 doesn't work.
+
+    // Let's try again. The pointer is at `1.5 * PI`. The middle of the winning slice is `winnerIndex * arc + arc / 2`.
+    // We want `(winnerIndex * arc + arc / 2) + rotation = 1.5 * PI`.
+    // `rotation = 1.5 * PI - (winnerIndex * arc + arc / 2)`.
+    // This should be the final angle.
+
+    const targetAngle = 1.5 * Math.PI - stopAngle;
 
     const randomSpins = 5 + Math.random() * 5; // 5 to 10 full spins
-    const targetRotation = (Math.PI * 2 * randomSpins) + finalAngle;
-
+    const targetRotation = (Math.PI * 2 * randomSpins) + targetAngle;
 
     let start: number | null = null;
     const duration = 5000; // 5 seconds spin
@@ -193,7 +224,7 @@ export function GiveawayRoulette() {
            <canvas ref={canvasRef} />
             {winner && !isSpinning && (
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="text-center p-6 bg-background/80 backdrop-blur-sm rounded-2xl border-2 border-accent shadow-2xl animate-in fade-in-0 zoom-in-75 duration-500">
+                    <div className="text-center p-6 bg-background/80 backdrop-blur-sm rounded-2xl border-2 border-primary shadow-2xl animate-in fade-in-0 zoom-in-75 duration-500">
                         <p className="text-lg font-bold text-accent">{t.winnerTitle}</p>
                         <p className="text-5xl font-bold font-headline tracking-tight">{winner}</p>
                     </div>
