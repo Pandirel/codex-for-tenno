@@ -26,6 +26,13 @@ const textContent = {
         mission: 'Misión Recomendada',
         notes: 'Notas',
     },
+    giveaway: {
+      spin: '¡GIRAR!',
+      spinning: 'Girando...',
+      winnerTitle: '¡El ganador es!',
+      participants: 'Participantes',
+      addParticipant: 'Añadir participante...',
+    },
     footer: {
       mainText: 'Recuerda, el verdadero endgame de Warframe es la lectura.',
       tooltipText: 'Estas son mini guías y tips para jugadores que inician su aventura en Warframe.',
@@ -52,6 +59,13 @@ const textContent = {
         planet: 'Planet',
         mission: 'Recommended Mission',
         notes: 'Notes',
+    },
+    giveaway: {
+      spin: 'SPIN!',
+      spinning: 'Spinning...',
+      winnerTitle: 'The winner is!',
+      participants: 'Participants',
+      addParticipant: 'Add participant...',
     },
     footer: {
       mainText: 'Remember, the true endgame of Warframe is reading.',
