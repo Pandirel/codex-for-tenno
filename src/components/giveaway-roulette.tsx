@@ -32,12 +32,7 @@ export function GiveawayRoulette() {
     if (!ctx) return;
 
     const numParticipants = participants.length;
-    if (numParticipants === 0) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      return;
-    };
-    
-    const arc = Math.PI * 2 / numParticipants;
+    const arc = Math.PI * 2 / (numParticipants > 0 ? numParticipants : 1);
     const radius = canvas.width / 2;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -45,32 +40,34 @@ export function GiveawayRoulette() {
     ctx.translate(radius, radius);
     ctx.rotate(rotation);
 
-    for (let i = 0; i < numParticipants; i++) {
-      const angle = i * arc;
-      ctx.beginPath();
-      ctx.fillStyle = colors[i % colors.length];
-      ctx.moveTo(0, 0);
-      ctx.arc(0, 0, radius * 0.95, angle, angle + arc);
-      ctx.lineTo(0, 0);
-      ctx.fill();
-      
-      ctx.save();
-      ctx.fillStyle = 'white';
-      ctx.font = 'bold 16px Arial';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      const textAngle = angle + arc / 2;
-      ctx.rotate(textAngle);
-      const text = participants[i];
-      const maxTextWidth = radius * 0.7;
-      let fontSize = 16;
-      ctx.font = `bold ${fontSize}px Arial`;
-      while (ctx.measureText(text).width > maxTextWidth && fontSize > 8) {
-          fontSize--;
-          ctx.font = `bold ${fontSize}px Arial`;
+    if (numParticipants > 0) {
+      for (let i = 0; i < numParticipants; i++) {
+        const angle = i * arc;
+        ctx.beginPath();
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.moveTo(0, 0);
+        ctx.arc(0, 0, radius * 0.95, angle, angle + arc);
+        ctx.lineTo(0, 0);
+        ctx.fill();
+        
+        ctx.save();
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 16px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        const textAngle = angle + arc / 2;
+        ctx.rotate(textAngle);
+        const text = participants[i];
+        const maxTextWidth = radius * 0.7;
+        let fontSize = 16;
+        ctx.font = `bold ${fontSize}px Arial`;
+        while (ctx.measureText(text).width > maxTextWidth && fontSize > 8) {
+            fontSize--;
+            ctx.font = `bold ${fontSize}px Arial`;
+        }
+        ctx.fillText(text, radius * 0.55, 0);
+        ctx.restore();
       }
-      ctx.fillText(text, radius * 0.55, 0);
-      ctx.restore();
     }
     ctx.restore();
 
@@ -128,7 +125,7 @@ export function GiveawayRoulette() {
     if (participants.length < 2) {
         toast({
             title: "Error",
-            description: t.add,
+            description: t.addParticipantError,
             variant: "destructive",
         });
         return;
@@ -137,12 +134,15 @@ export function GiveawayRoulette() {
     setWinner(null);
     
     const winnerIndex = Math.floor(Math.random() * participants.length);
-    const arc = Math.PI * 2 / participants.length;
+    const arc = (2 * Math.PI) / participants.length;
     
+    // Calculate the angle to stop at. The pointer is at the top (0 radians is right, so top is -PI/2 or 3*PI/2)
+    // We want the pointer to be in the middle of the winner's slice.
     const stopAngle = (winnerIndex * arc) + (arc / 2);
-    
-    const randomSpins = 5 + Math.random() * 5;
+
+    const randomSpins = 5 + Math.random() * 5; // 5 to 10 full spins
     const targetRotation = (Math.PI * 2 * randomSpins) - stopAngle + (Math.PI / 2);
+
 
     let start: number | null = null;
     const duration = 5000; // 5 seconds spin
@@ -162,7 +162,7 @@ export function GiveawayRoulette() {
         if (progress < duration) {
             requestAnimationFrame(animate);
         } else {
-            setRotation(targetRotation);
+            setRotation(targetRotation % (Math.PI * 2));
             setWinner(participants[winnerIndex]);
             setIsSpinning(false);
         }
@@ -186,6 +186,14 @@ export function GiveawayRoulette() {
           className="relative w-full max-w-[500px] aspect-square flex items-center justify-center"
         >
            <canvas ref={canvasRef} />
+            {winner && !isSpinning && (
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="text-center p-6 bg-background/80 backdrop-blur-sm rounded-2xl border-2 border-accent shadow-2xl animate-in fade-in-0 zoom-in-75 duration-500">
+                        <p className="text-lg font-bold text-accent">{t.winnerTitle}</p>
+                        <p className="text-5xl font-bold font-headline tracking-tight">{winner}</p>
+                    </div>
+                </div>
+            )}
         </div>
         <div className="flex items-center gap-4">
           <Button onClick={handleSpin} disabled={isSpinning || participants.length < 2}>
@@ -195,12 +203,6 @@ export function GiveawayRoulette() {
             {t.reset}
           </Button>
         </div>
-        {winner && !isSpinning && (
-          <div className="text-center mt-4 p-4 bg-accent/10 border-2 border-dashed border-accent rounded-lg">
-            <p className="text-sm font-bold text-accent">{t.winnerTitle}</p>
-            <p className="text-4xl font-bold font-headline">{winner}</p>
-          </div>
-        )}
       </div>
 
       {/* Columna de Participantes */}
@@ -242,3 +244,5 @@ export function GiveawayRoulette() {
     </div>
   );
 }
+
+    
