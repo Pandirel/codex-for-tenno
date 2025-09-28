@@ -10,7 +10,6 @@ const textContent = {
     nav: [
       { href: '/', label: 'Guías' },
       { href: '/farming', label: 'Recursos' },
-      { href: '/giveaways', label: 'Sorteos' },
     ],
     guides: {
         searchPlaceholder: 'Buscar una guía...',
@@ -27,14 +26,6 @@ const textContent = {
         mission: 'Misión Recomendada',
         notes: 'Notas',
     },
-    giveaway: {
-      spin: '¡GIRAR!',
-      spinning: 'Girando...',
-      winnerTitle: '¡El ganador es!',
-      reset: 'Reiniciar',
-      participantsTitle: 'Participantes',
-      waiting: 'Esperando...',
-    },
     footer: {
       mainText: 'Recuerda, el verdadero endgame de Warframe es la lectura.',
       tooltipText: 'Estas son mini guías y tips para jugadores que inician su aventura en Warframe.',
@@ -45,7 +36,6 @@ const textContent = {
     nav: [
         { href: '/', label: 'Guides' },
         { href: '/farming', label: 'Resources' },
-        { href: '/giveaways', label: 'Giveaways' },
     ],
     guides: {
         searchPlaceholder: 'Search for a guide...',
@@ -61,14 +51,6 @@ const textContent = {
         planet: 'Planet',
         mission: 'Recommended Mission',
         notes: 'Notes',
-    },
-    giveaway: {
-      spin: 'SPIN!',
-      spinning: 'Spinning...',
-      winnerTitle: 'The winner is!',
-      reset: 'Reset',
-      participantsTitle: 'Participants',
-      waiting: 'Waiting...',
     },
     footer: {
       mainText: 'Remember, the true endgame of Warframe is reading.',
