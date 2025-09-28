@@ -84,7 +84,7 @@ export function GiveawayRoulette() {
     ctx.closePath();
     ctx.fill();
 
-  }, [participants, rotation, colors]);
+  }, [participants, rotation]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -143,10 +143,12 @@ export function GiveawayRoulette() {
     
     const randomSpins = 5 + Math.random() * 5;
     
-    const winnerSegmentMiddleAngle = winnerIndex * arc + arc / 2;
-    const pointerAngle = 1.5 * Math.PI; 
-    
-    const targetAngle = pointerAngle - winnerSegmentMiddleAngle;
+    // Correct calculation for target angle
+    // We want the winner's segment to align with the top pointer.
+    // The pointer is at 270 degrees (or -90 / 1.5 * PI).
+    // The rotation should bring the start of the winner's segment to a point just past the pointer
+    const randomOffset = Math.random() * arc * 0.8 + arc * 0.1; // random point inside the segment
+    const targetAngle = (2 * Math.PI) - (winnerIndex * arc) - randomOffset;
 
     const targetRotation = (Math.PI * 2 * randomSpins) + targetAngle;
     
