@@ -1,3 +1,4 @@
+
 'use client';
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
@@ -9,6 +10,7 @@ const textContent = {
     nav: [
       { href: '/', label: 'Guías' },
       { href: '/farming', label: 'Recursos' },
+      { href: '/giveaways', label: 'Sorteos' },
     ],
     guides: {
         searchPlaceholder: 'Buscar una guía...',
@@ -42,6 +44,7 @@ const textContent = {
     nav: [
         { href: '/', label: 'Guides' },
         { href: '/farming', label: 'Resources' },
+        { href: '/giveaways', label: 'Giveaways' },
     ],
     guides: {
         searchPlaceholder: 'Search for a guide...',
