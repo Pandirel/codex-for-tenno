@@ -128,9 +128,11 @@ export function GiveawayRoulette() {
 
   // Simulate users joining
   useEffect(() => {
+    if (isSpinning) return;
+
     const interval = setInterval(() => {
       setParticipants(prev => {
-        if (prev.length >= 50 || isSpinning) {
+        if (prev.length >= 50) {
           clearInterval(interval);
           return prev;
         }
