@@ -48,10 +48,8 @@ export function GiveawayRoulette() {
     
     const baseRotations = 5;
     const itemAngle = 360 / totalParticipants;
-    // Adjust the angle to point to the middle of the winner's segment
     const winnerAngle = winnerIndex * itemAngle;
     
-    // Add a random offset within the winner's segment for variability
     const randomOffset = (Math.random() - 0.5) * itemAngle * 0.8;
     const finalRotation = (baseRotations * 360) + (360 - winnerAngle) - (itemAngle / 2) + randomOffset;
     
@@ -75,7 +73,7 @@ export function GiveawayRoulette() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
       <div className="lg:col-span-2 flex flex-col items-center justify-center gap-8 p-4">
-        <div className="relative w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] md:w-[600px] md:h-[600px]">
+        <div className="relative w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] md:w-[500px] md:h-[500px]">
           {/* The Pointer */}
           <div 
             className="absolute top-1/2 -right-4 md:-right-5 -translate-y-1/2 z-20"
@@ -95,7 +93,7 @@ export function GiveawayRoulette() {
           >
             {participants.map((name, index) => {
               const angle = itemAngle * index;
-              const textRotation = itemAngle / 2;
+              const textAngle = itemAngle / 2;
               const bgColor = index % 2 === 0 ? 'bg-background' : 'bg-muted';
               
               return (
@@ -118,13 +116,15 @@ export function GiveawayRoulette() {
                     }}
                   />
                   <div
-                    className="absolute w-full h-full flex items-center justify-end pr-[15%]"
+                    className="absolute w-[calc(100%-10px)] h-[calc(100%-10px)] flex items-center justify-center"
                     style={{
-                        transform: `rotate(${textRotation}deg)`,
-                        transformOrigin: 'bottom right'
+                        transform: `rotate(${textAngle}deg) translate(-50%, -50%)`,
+                        transformOrigin: 'bottom right',
+                        top: '50%',
+                        left: '50%'
                     }}
                   >
-                    <span className="text-sm md:text-base font-semibold text-foreground/80 transform -rotate-90 -translate-x-1/4 origin-center whitespace-nowrap">
+                    <span className="text-sm md:text-base font-semibold text-foreground/80 transform -rotate-90 origin-center whitespace-nowrap">
                       {name}
                     </span>
                   </div>
