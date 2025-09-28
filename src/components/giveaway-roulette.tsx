@@ -136,12 +136,17 @@ export function GiveawayRoulette() {
     const winnerIndex = Math.floor(Math.random() * participants.length);
     const arc = (2 * Math.PI) / participants.length;
     
-    // Calculate the angle to stop at. The pointer is at the top (0 radians is right, so top is -PI/2 or 3*PI/2)
-    // We want the pointer to be in the middle of the winner's slice.
+    // The pointer is at the top (-90 degrees or -PI/2).
+    // The start of slice 0 is at 0 degrees.
+    // We want the middle of the winner's slice to be under the pointer.
+    // Middle of winner's slice is at angle: `(winnerIndex * arc) + (arc / 2)`
+    // To align this angle with the top pointer, we need to rotate by -that_angle.
+    // The top pointer is at -PI/2, so the final rotation should be:
     const stopAngle = (winnerIndex * arc) + (arc / 2);
+    const finalAngle = -stopAngle + (Math.PI / 2);
 
     const randomSpins = 5 + Math.random() * 5; // 5 to 10 full spins
-    const targetRotation = (Math.PI * 2 * randomSpins) - stopAngle + (Math.PI / 2);
+    const targetRotation = (Math.PI * 2 * randomSpins) + finalAngle;
 
 
     let start: number | null = null;
@@ -244,5 +249,3 @@ export function GiveawayRoulette() {
     </div>
   );
 }
-
-    
