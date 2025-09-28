@@ -15,15 +15,32 @@ export function GiveawayRoulette() {
   const t = translations.giveaway;
   const { toast } = useToast();
   
-  const [participants, setParticipants] = useState<string[]>(['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6', 'Player 7', 'Player 8', 'Player 9', 'Player 10', 'Player 11', 'Player 12']);
+  const [participants, setParticipants] = useState<string[]>(['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6', 'Player 7', 'Player 8']);
   const [newParticipant, setNewParticipant] = useState('');
   const [winner, setWinner] = useState<string | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
-  const [rotation, setRotation] = useState(0);
-
+  
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rotationRef = useRef(0);
 
-  const colors = ['#FFC107', '#FF5722', '#4CAF50', '#2196F3', '#9C27B0', '#E91E63', '#F44336', '#00BCD4', '#FF9800', '#607D8B', '#8BC34A', '#CDDC39'];
+  // New color palette inspired by the site's theme
+  const colors = [
+    'hsl(271, 45%, 55%)', // Lighter primary
+    'hsl(203, 65%, 54%)', // accent
+    'hsl(271, 45%, 45%)', // primary
+    'hsl(203, 65%, 44%)', // Darker accent
+    'hsl(0, 0%, 30%)',    // Muted dark
+    'hsl(271, 45%, 35%)', // Darker primary
+    'hsl(203, 65%, 64%)', // Lighter accent
+    'hsl(0, 0%, 40%)'     // Lighter Muted dark
+  ];
+
+  const getFontSize = (numParticipants: number) => {
+    if (numParticipants > 30) return 8;
+    if (numParticipants > 20) return 10;
+    if (numParticipants > 10) return 12;
+    return 16;
+  }
 
   const drawRoulette = useCallback(() => {
     const canvas = canvasRef.current;
@@ -32,16 +49,16 @@ export function GiveawayRoulette() {
     if (!ctx) return;
 
     const numParticipants = participants.length;
-    const arc = Math.PI * 2 / (numParticipants > 0 ? numParticipants : 1);
+    const arc = (Math.PI * 2) / (numParticipants > 0 ? numParticipants : 1);
     const radius = canvas.width / 2;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save();
     ctx.translate(radius, radius);
-    ctx.rotate(rotation);
+    ctx.rotate(rotationRef.current);
 
     if (numParticipants > 0) {
-      for (let i = 0; i < numParticipants; i++) {
+      participants.forEach((participant, i) => {
         const angle = i * arc;
         ctx.beginPath();
         ctx.fillStyle = colors[i % colors.length];
@@ -52,30 +69,30 @@ export function GiveawayRoulette() {
         
         ctx.save();
         ctx.fillStyle = 'white';
+        const fontSize = getFontSize(numParticipants);
+        ctx.font = `bold ${fontSize}px Arial`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
         const textAngle = angle + arc / 2;
         ctx.rotate(textAngle);
         
-        const text = participants[i];
+        const text = participant;
         const maxTextWidth = radius * 0.7;
         
-        let fontSize = 16;
-        if (numParticipants > 10) fontSize = 12;
-        if (numParticipants > 20) fontSize = 10;
-        ctx.font = `bold ${fontSize}px Arial`;
-
-        while (ctx.measureText(text).width > maxTextWidth && fontSize > 8) {
-            fontSize--;
-            ctx.font = `bold ${fontSize}px Arial`;
+        // Simple truncation if text is too long
+        let shortenedText = text;
+        while (ctx.measureText(shortenedText).width > maxTextWidth && shortenedText.length > 5) {
+            shortenedText = shortenedText.slice(0, -1);
         }
-        ctx.fillText(text, radius * 0.55, 0);
+        
+        ctx.fillText(shortenedText, radius * 0.55, 0);
         ctx.restore();
-      }
+      });
     }
     ctx.restore();
 
+    // Draw the pointer
     ctx.fillStyle = '#FF0000';
     ctx.beginPath();
     ctx.moveTo(radius - 15, 0);
@@ -84,7 +101,7 @@ export function GiveawayRoulette() {
     ctx.closePath();
     ctx.fill();
 
-  }, [participants, rotation]);
+  }, [participants]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -99,14 +116,13 @@ export function GiveawayRoulette() {
         }
     };
     window.addEventListener('resize', handleResize);
-    handleResize();
+    handleResize(); // Initial resize
     return () => window.removeEventListener('resize', handleResize);
   }, [drawRoulette]);
-
+  
   useEffect(() => {
     drawRoulette();
-  }, [participants, rotation, drawRoulette]);
-
+  }, [participants, drawRoulette]);
 
   const handleAddParticipant = () => {
     if (newParticipant && !participants.includes(newParticipant)) {
@@ -114,7 +130,7 @@ export function GiveawayRoulette() {
       setNewParticipant('');
     } else if (participants.includes(newParticipant)) {
         toast({
-            title: "Error",
+            title: t.addParticipantErrorTitle,
             description: t.addParticipantError,
             variant: "destructive",
         });
@@ -128,8 +144,8 @@ export function GiveawayRoulette() {
   const handleSpin = () => {
     if (participants.length < 2) {
         toast({
-            title: "Error",
-            description: t.addParticipantError,
+            title: t.spinErrorTitle,
+            description: t.spinError,
             variant: "destructive",
         });
         return;
@@ -137,40 +153,44 @@ export function GiveawayRoulette() {
     setIsSpinning(true);
     setWinner(null);
     
-    const winnerIndex = Math.floor(Math.random() * participants.length);
     const numParticipants = participants.length;
     const arc = (2 * Math.PI) / numParticipants;
+    const winnerIndex = Math.floor(Math.random() * numParticipants);
     
-    const randomSpins = 5 + Math.random() * 5;
+    const spinRotations = 5 + Math.random() * 5; // Total spins
     
-    // Correct calculation for target angle
-    // We want the winner's segment to align with the top pointer.
-    // The pointer is at 270 degrees (or -90 / 1.5 * PI).
-    // The rotation should bring the start of the winner's segment to a point just past the pointer
-    const randomOffset = Math.random() * arc * 0.8 + arc * 0.1; // random point inside the segment
-    const targetAngle = (2 * Math.PI) - (winnerIndex * arc) - randomOffset;
+    // The pointer is at the top (12 o'clock), which is -PI/2 or 1.5*PI in canvas radians.
+    // The middle of the winning segment is at `winnerIndex * arc + arc / 2`.
+    // We want to rotate so the middle of the winning segment ends up at 1.5*PI.
+    // The angle needs to be negative to spin clockwise.
+    const winnerAngle = winnerIndex * arc + arc / 2;
+    // Add a small random offset to not always land in the exact center
+    const randomOffset = (Math.random() - 0.5) * (arc * 0.8);
+    const targetAngle = winnerAngle + randomOffset;
 
-    const targetRotation = (Math.PI * 2 * randomSpins) + targetAngle;
+    const finalRotation = (spinRotations * 2 * Math.PI) - targetAngle + (1.5 * Math.PI);
     
     let start: number | null = null;
-    const duration = 5000;
-    const initialRotation = rotation % (Math.PI * 2);
+    const duration = 6000;
+    const initialRotation = rotationRef.current % (Math.PI * 2);
 
     const animate = (timestamp: number) => {
         if (!start) start = timestamp;
-        const progress = timestamp - start;
+        const elapsed = timestamp - start;
         
         const easeOutQuint = (t: number) => 1 - Math.pow(1 - t, 5);
-        const t = Math.min(progress / duration, 1);
-        const easedT = easeOutQuint(t);
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutQuint(progress);
 
-        const newRotation = initialRotation + (targetRotation - initialRotation) * easedT;
-        setRotation(newRotation);
+        const newRotation = initialRotation + (finalRotation - initialRotation) * easedProgress;
+        rotationRef.current = newRotation;
+        drawRoulette();
         
-        if (progress < duration) {
+        if (elapsed < duration) {
             requestAnimationFrame(animate);
         } else {
-            setRotation(targetRotation % (Math.PI * 2));
+            rotationRef.current = finalRotation % (Math.PI * 2);
+            drawRoulette();
             setWinner(participants[winnerIndex]);
             setIsSpinning(false);
         }
@@ -183,7 +203,8 @@ export function GiveawayRoulette() {
     setParticipants([]);
     setWinner(null);
     setIsSpinning(false);
-    setRotation(0);
+    rotationRef.current = 0;
+    drawRoulette();
   };
   
   return (
