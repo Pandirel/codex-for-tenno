@@ -25,19 +25,19 @@ export function GiveawayRoulette() {
 
   const colors = ["#6366F1", "#EC4899", "#8B5CF6", "#10B981", "#F59E0B", "#3B82F6"];
 
-  const getCanvasStyles = () => {
-    if (typeof window === 'undefined') return { bg: '#1c1c1c', muted: '#3a3a3a', text: '#ffffff' };
+  const getCanvasStyles = useCallback(() => {
+    if (typeof window === 'undefined') return { bg: '#1c1c1c', muted: '#3a3a3a', text: '#ffffff', border: '#3a3a3a', accent: '#3B82F6' };
     const styles = getComputedStyle(document.documentElement);
     const isDark = document.documentElement.classList.contains('dark');
     return {
-        bg: isDark ? `hsl(var(--background))` : `hsl(var(--card))`,
-        muted: isDark ? `hsl(var(--muted))` : `hsl(var(--secondary))`,
-        text: `hsl(var(--foreground))`,
-        primary: `hsl(var(--primary))`,
-        accent: `hsl(var(--accent))`,
-        border: `hsl(var(--border))`,
+        bg: isDark ? `hsl(${styles.getPropertyValue('--background').trim()})` : `hsl(${styles.getPropertyValue('--card').trim()})`,
+        muted: isDark ? `hsl(${styles.getPropertyValue('--muted').trim()})` : `hsl(${styles.getPropertyValue('--secondary').trim()})`,
+        text: `hsl(${styles.getPropertyValue('--foreground').trim()})`,
+        primary: `hsl(${styles.getPropertyValue('--primary').trim()})`,
+        accent: `hsl(${styles.getPropertyValue('--accent').trim()})`,
+        border: `hsl(${styles.getPropertyValue('--border').trim()})`,
     };
-  };
+  }, []);
 
   const drawRoulette = useCallback(() => {
     const canvas = canvasRef.current;
@@ -46,7 +46,10 @@ export function GiveawayRoulette() {
     if (!ctx) return;
     
     const numParticipants = participants.length;
-    if (numParticipants === 0) return;
+    if (numParticipants === 0) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        return;
+    };
 
     const arcSize = (2 * Math.PI) / numParticipants;
     const { width, height } = canvas;
@@ -97,7 +100,7 @@ export function GiveawayRoulette() {
     ctx.closePath();
     ctx.fill();
 
-  }, [participants, currentAngle, colors]);
+  }, [participants, currentAngle, getCanvasStyles]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
