@@ -91,19 +91,6 @@ body {
   .duration-ease-out-cubic {
     transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
   }
-
-  @keyframes spin-roulette {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(var(--rotation));
-    }
-  }
-
-  .animate-spin-roulette {
-    animation: spin-roulette var(--spin-duration) forwards;
-  }
 }
 
 
