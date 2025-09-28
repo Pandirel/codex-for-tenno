@@ -32,6 +32,8 @@ const textContent = {
       spinning: 'Girando...',
       winnerTitle: '¡El ganador es!',
       reset: 'Reiniciar',
+      participantsTitle: 'Participantes',
+      waiting: 'Esperando...',
     },
     footer: {
       mainText: 'Recuerda, el verdadero endgame de Warframe es la lectura.',
@@ -65,6 +67,8 @@ const textContent = {
       spinning: 'Spinning...',
       winnerTitle: 'The winner is!',
       reset: 'Reset',
+      participantsTitle: 'Participants',
+      waiting: 'Waiting...',
     },
     footer: {
       mainText: 'Remember, the true endgame of Warframe is reading.',
