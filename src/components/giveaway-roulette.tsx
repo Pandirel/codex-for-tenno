@@ -48,10 +48,11 @@ export function GiveawayRoulette() {
     
     const baseRotations = 5;
     const itemAngle = 360 / totalParticipants;
-    const winnerAngle = winnerIndex * itemAngle;
+    // Adjusting so 0 angle is at the top
+    const winnerAngle = (winnerIndex * itemAngle) + (itemAngle / 2);
     
     const randomOffset = (Math.random() - 0.5) * itemAngle * 0.8;
-    const finalRotation = (baseRotations * 360) + (360 - winnerAngle) - (itemAngle / 2) + randomOffset;
+    const finalRotation = (baseRotations * 360) + (360 - winnerAngle) + randomOffset;
     
     const duration = 6000 + Math.random() * 2000;
     setSpinDuration(duration);
@@ -76,24 +77,24 @@ export function GiveawayRoulette() {
         <div className="relative w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] md:w-[500px] md:h-[500px]">
           {/* The Pointer */}
           <div 
-            className="absolute top-1/2 -right-4 md:-right-5 -translate-y-1/2 z-20"
+            className="absolute -top-4 left-1/2 -translate-x-1/2 z-20"
             style={{ filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.5))' }}
           >
-             <svg width="40" height="40" viewBox="0 0 10 10" className="text-accent fill-current">
+             <svg width="40" height="40" viewBox="0 0 10 10" className="text-accent fill-current rotate-90">
                 <polygon points="10,5 2,0 2,10" />
             </svg>
           </div>
           
           <div 
             className={cn(
-              "relative w-full h-full rounded-full border-2 border-border overflow-hidden",
+              "relative w-full h-full rounded-full border-2 border-border overflow-hidden transform-gpu",
               isSpinning && 'animate-spin-roulette duration-ease-out-cubic'
             )} 
-            style={wheelStyle}
+            style={{...wheelStyle, transform: `rotate(calc(var(--rotation) - 90deg - ${itemAngle/2}deg))`}}
           >
             {participants.map((name, index) => {
               const angle = itemAngle * index;
-              const textAngle = itemAngle / 2;
+              const textAngle = angle + itemAngle / 2;
               const bgColor = index % 2 === 0 ? 'bg-background' : 'bg-muted';
               
               return (
@@ -118,7 +119,7 @@ export function GiveawayRoulette() {
                   <div
                     className="absolute w-[calc(100%-10px)] h-[calc(100%-10px)] flex items-center justify-center"
                     style={{
-                        transform: `rotate(${textAngle}deg) translate(-50%, -50%)`,
+                        transform: `rotate(${itemAngle/2}deg) translate(-50%, -50%)`,
                         transformOrigin: 'bottom right',
                         top: '50%',
                         left: '50%'
