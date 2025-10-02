@@ -94,11 +94,12 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
         />
       )}
       
-      {/* Prize and Drawing Area */}
-      <div className="lg:col-span-2 flex flex-col gap-8">
-        <div className="flex flex-col lg:flex-row gap-8">
+      {/* Column 1 & 2: Prize and Drawing Area */}
+      <div className={cn("transition-all duration-500 ease-in-out", isDrawing || winner ? 'lg:col-span-3' : 'lg:col-span-2')}>
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-col lg:flex-row gap-8">
             {/* Prize Image */}
-            <div className="lg:w-1/2">
+            <div className={cn("transition-all duration-500 ease-in-out", isDrawing || winner ? 'lg:w-full' : 'lg:w-1/2')}>
                 <Card className="overflow-hidden h-full">
                     <CardContent className="p-0">
                         <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
@@ -116,40 +117,47 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
             </div>
             
             {/* Prize Info and Drawing Controls */}
-            <div className="lg:w-1/2 flex flex-col gap-8">
-            <Card>
-                <CardContent className="p-4 space-y-2">
-                    <h2 className="font-headline text-2xl tracking-tight">{title}</h2>
-                    <p className="text-sm text-muted-foreground">{description}</p>
-                </CardContent>
-            </Card>
-            
-            <Card className="text-center p-6 bg-background/50 flex flex-col justify-center items-center flex-grow min-h-[150px]">
-                {winner ? (
-                <div className="animate-in fade-in zoom-in-95 duration-500">
-                    <Trophy className="h-12 w-12 mx-auto text-amber-400" />
-                    <p className="text-muted-foreground mt-2 text-sm">{t.winner}</p>
-                    <h3 className="text-3xl font-bold font-headline text-primary my-1">{winner}</h3>
-                    <Button onClick={handleReset} variant="outline" size="sm" className="mt-2">{t.drawAgain}</Button>
-                </div>
-                ) : isDrawing ? (
-                <div>
-                    <h3 className="text-3xl font-bold font-headline animate-pulse">{shufflingName}</h3>
-                </div>
-                ) : (
-                <div className="flex flex-col items-center justify-center">
-                    <Ticket className="h-12 w-12 mx-auto text-primary" />
-                    <Button onClick={handleDraw} size="lg" className="mt-4">{t.drawWinner}</Button>
-                </div>
-                )}
-            </Card>
+            <div className={cn(
+              "lg:w-1/2 flex flex-col gap-8 transition-opacity duration-500 ease-in-out",
+              isDrawing || winner ? 'lg:w-0 lg:opacity-0' : 'lg:w-1/2 lg:opacity-100'
+            )}>
+              <Card>
+                  <CardContent className="p-4 space-y-2">
+                      <h2 className="font-headline text-2xl tracking-tight">{title}</h2>
+                      <p className="text-sm text-muted-foreground">{description}</p>
+                  </CardContent>
+              </Card>
+              
+              <Card className="text-center p-6 bg-background/50 flex flex-col justify-center items-center flex-grow min-h-[150px]">
+                  {winner ? (
+                  <div className="animate-in fade-in zoom-in-95 duration-500">
+                      <Trophy className="h-12 w-12 mx-auto text-amber-400" />
+                      <p className="text-muted-foreground mt-2 text-sm">{t.winner}</p>
+                      <h3 className="text-3xl font-bold font-headline text-primary my-1">{winner}</h3>
+                      <Button onClick={handleReset} variant="outline" size="sm" className="mt-2">{t.drawAgain}</Button>
+                  </div>
+                  ) : isDrawing ? (
+                  <div>
+                      <h3 className="text-3xl font-bold font-headline animate-pulse">{shufflingName}</h3>
+                  </div>
+                  ) : (
+                  <div className="flex flex-col items-center justify-center">
+                      <Ticket className="h-12 w-12 mx-auto text-primary" />
+                      <Button onClick={handleDraw} size="lg" className="mt-4">{t.drawWinner}</Button>
+                  </div>
+                  )}
+              </Card>
             </div>
+          </div>
         </div>
       </div>
 
 
       {/* Participants List */}
-      <div className="lg:col-span-1">
+      <div className={cn(
+        "transition-all duration-500 ease-in-out",
+        isDrawing || winner ? 'lg:col-span-0 lg:opacity-0 lg:hidden' : 'lg:col-span-1 lg:opacity-100'
+      )}>
         <Card className="h-full">
           <CardHeader>
             <div className="flex items-center gap-3">
