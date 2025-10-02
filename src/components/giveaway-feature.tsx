@@ -92,23 +92,28 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
             height={windowSize.height}
             recycle={false}
             numberOfPieces={400}
+            style={{ pointerEvents: 'none' }}
           />
         </div>
       )}
       
-      <div className="lg:col-span-2 grid grid-cols-1 gap-8">
+      <div className={cn(
+        "lg:col-span-2 grid grid-cols-1 gap-8",
+      )}>
         <div className="grid lg:grid-cols-2 gap-8 items-start">
-            <Card className="overflow-hidden shadow-none">
-              <Image 
-                  src={giveaway.prizeImage} 
-                  alt={title} 
-                  width={1280} 
-                  height={720} 
-                  className="object-cover w-full h-full rounded-lg"
-                  data-ai-hint="giveaway prize"
-              />
+            <Card className="overflow-hidden shadow-none p-0">
+              <CardContent className="p-0">
+                <Image 
+                    src={giveaway.prizeImage} 
+                    alt={title} 
+                    width={1280} 
+                    height={720} 
+                    className="object-cover w-full h-full rounded-lg"
+                    data-ai-hint="giveaway prize"
+                />
+              </CardContent>
             </Card>
-            <div className="flex flex-col gap-8 h-full">
+            <div className={cn("flex flex-col gap-8 h-full")}>
               <div className="p-6">
                 <h2 className="text-2xl font-semibold leading-none tracking-tight font-headline">{title}</h2>
                 <p className="text-sm text-muted-foreground mt-2">{giveaway.description[language]}</p>
@@ -137,7 +142,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
         </div>
       </div>
 
-      <div className="lg:col-span-1">
+      <div className={cn("lg:col-span-1")}>
         <Card className="h-full">
           <CardHeader>
             <div className="flex items-center gap-3">
