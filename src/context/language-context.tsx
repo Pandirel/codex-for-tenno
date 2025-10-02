@@ -35,7 +35,12 @@ const textContent = {
       noParticipants: 'Aún no hay participantes. ¡Sé el primero!',
       drawWinner: 'Sortear Ganador',
       drawAgain: 'Sortear de Nuevo',
-      winner: 'El ganador es...'
+      winner: 'El ganador es...',
+      noActiveGiveaway: 'No hay Sorteos Activos',
+      noActiveGiveawayHint: 'Vuelve más tarde o revisa el Discord para futuras noticias.',
+      upcomingGiveaway: 'Próximo Sorteo',
+      noScheduledGiveaway: 'Aún no hay sorteos programados.',
+      noScheduledGiveawayHint: '¡Mantente atento a los anuncios en Discord!',
     },
     footer: {
       mainText: 'Recuerda, el verdadero endgame de Warframe es la lectura.',
@@ -72,7 +77,12 @@ const textContent = {
       noParticipants: 'No participants yet. Be the first!',
       drawWinner: 'Draw Winner',
       drawAgain: 'Draw Again',
-      winner: 'The winner is...'
+      winner: 'The winner is...',
+      noActiveGiveaway: 'No Active Giveaways',
+      noActiveGiveawayHint: 'Check back later or watch Discord for future announcements.',
+      upcomingGiveaway: 'Upcoming Giveaway',
+      noScheduledGiveaway: 'No giveaways scheduled yet.',
+      noScheduledGiveawayHint: 'Stay tuned for announcements on Discord!',
     },
     footer: {
       mainText: 'Remember, the true endgame of Warframe is reading.',

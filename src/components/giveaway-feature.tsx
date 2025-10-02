@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import type { Giveaway } from '@/models/giveaway';
 import { useLanguage } from '@/context/language-context';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -16,7 +15,7 @@ import { Skeleton } from './ui/skeleton';
 
 interface Participant {
   id: string;
-  username: string; // Corrected from 'name' to 'username'
+  username: string;
 }
 
 interface GiveawayDoc {
@@ -24,12 +23,12 @@ interface GiveawayDoc {
   active: boolean;
   participants: Participant[];
   winner?: Participant;
-  title?: string; // Corrected from '{ [key: string]: string }'
+  title?: string;
   prizeImage?: string;
 }
 
-export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
-  const { language, translations } = useLanguage();
+export function GiveawayFeature() {
+  const { translations } = useLanguage();
   const t = translations.giveaways;
   const firestore = useFirestore();
   
@@ -41,18 +40,14 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
   const participants = activeGiveaway?.participants || [];
 
   const [isDrawing, setIsDrawing] = useState(false);
-  const [winner, setWinner] = useState<Participant | null>(activeGiveaway?.winner || null);
+  const [winner, setWinner] = useState<Participant | null>(null);
   const [shufflingName, setShufflingName] = useState<string | null>(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
-  // Use data from Firestore if available, otherwise use static data as fallback.
-  const prizeImage = activeGiveaway?.prizeImage || giveaway.prizeImage;
-  const title = activeGiveaway?.title || giveaway.title[language];
-
   useEffect(() => {
-    if (activeGiveaway?.winner) {
-      setWinner(activeGiveaway.winner);
+    if (activeGiveaway) {
+      setWinner(activeGiveaway.winner || null);
     }
   }, [activeGiveaway]);
 
@@ -90,7 +85,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
 
     const shuffle = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * participants.length);
-      setShufflingName(participants[randomIndex].username); // Use .username
+      setShufflingName(participants[randomIndex].username);
       shuffleCount++;
 
       if (shuffleCount > maxShuffles) {
@@ -118,6 +113,37 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
     setShufflingName(null);
   };
 
+  if (loading) {
+    return (
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="lg:col-span-2 grid grid-cols-1 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            <Skeleton className="w-full h-full aspect-video rounded-lg" />
+            <div className="flex flex-col gap-8 h-full">
+              <Skeleton className="h-24 w-full" />
+              <Skeleton className="h-40 w-full" />
+            </div>
+          </div>
+        </div>
+        <div className="lg:col-span-1">
+          <Skeleton className="h-[calc(100vh-200px)] w-full" />
+        </div>
+      </div>
+    );
+  }
+
+  if (!activeGiveaway) {
+    return (
+      <div className="flex flex-col items-center justify-center text-center py-20">
+        <Ticket className="h-16 w-16 text-muted-foreground mb-4" />
+        <h2 className="text-2xl font-bold font-headline">{t.noActiveGiveaway}</h2>
+        <p className="text-muted-foreground mt-2">{t.noActiveGiveawayHint}</p>
+      </div>
+    );
+  }
+
+  const { title, prizeImage } = activeGiveaway;
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
       {showConfetti && (
@@ -135,8 +161,8 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
         <div className="grid lg:grid-cols-2 gap-8 items-start">
             <Card className="overflow-hidden shadow-none">
                 <Image 
-                    src={prizeImage} 
-                    alt={title} 
+                    src={prizeImage || 'https://placehold.co/1280x720/1a1a1a/6c47ff/png?text=Prize'} 
+                    alt={title || 'Giveaway Prize'} 
                     width={1280} 
                     height={720} 
                     className="object-cover w-full h-full rounded-lg"
@@ -146,7 +172,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
             <div className="flex flex-col gap-8 h-full">
               <Card>
                 <CardHeader>
-                  <CardTitle className="font-headline tracking-tight">{title}</CardTitle>
+                  <CardTitle className="font-headline tracking-tight">{title || t.title}</CardTitle>
                 </CardHeader>
               </Card>
               
@@ -184,13 +210,6 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
           <CardContent className="pt-0">
             <ScrollArea className="h-[calc(100vh-250px)] min-h-[400px] border rounded-md p-4">
               <div className="space-y-2">
-                {loading && !activeGiveaway && (
-                  <div className="space-y-2">
-                    <Skeleton className="h-8 w-full" />
-                    <Skeleton className="h-8 w-full" />
-                    <Skeleton className="h-8 w-full" />
-                  </div>
-                )}
                 {participants.length === 0 && !loading && (
                     <div className="text-center text-muted-foreground pt-8">
                         <p>{t.noParticipants}</p>

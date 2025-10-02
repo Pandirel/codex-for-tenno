@@ -1,3 +1,4 @@
+
 {
   "entities": {
     "giveaway": {
@@ -5,16 +6,15 @@
       "description": "Represents a single giveaway event.",
       "type": "object",
       "properties": {
-        "title": {
-          "type": "object",
-          "properties": {
-            "en": { "type": "string" },
-            "es": { "type": "string" }
-          }
-        },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
         "prizeImage": {
           "type": "string",
           "format": "uri"
+        },
+        "drawDate": {
+          "type": "string",
+          "format": "date-time"
         },
         "active": {
           "type": "boolean",
@@ -26,16 +26,16 @@
             "type": "object",
             "properties": {
               "id": { "type": "string", "description": "Discord User ID" },
-              "name": { "type": "string", "description": "Discord Username" }
+              "username": { "type": "string", "description": "Discord Username" }
             },
-            "required": ["id", "name"]
+            "required": ["id", "username"]
           }
         },
         "winner": {
           "type": "object",
           "properties": {
             "id": { "type": "string" },
-            "name": { "type": "string" }
+            "username": { "type": "string" }
           }
         }
       },

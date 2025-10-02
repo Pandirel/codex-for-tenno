@@ -11,10 +11,10 @@ import { LanguageToggle } from '@/components/language-toggle';
 import { useLanguage } from '@/context/language-context';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { HelpCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
+import { GiveawayAnnouncement } from '@/components/giveaway-announcement';
 
 export default function Home() {
   const { translations } = useLanguage();
@@ -50,7 +50,10 @@ export default function Home() {
         </div>
       </header>
       <main className="container mx-auto max-w-screen-2xl p-4 sm:p-6 md:p-8">
-        <GuideList guides={guides} />
+        <div className="flex flex-col gap-8">
+          <GiveawayAnnouncement />
+          <GuideList guides={guides} />
+        </div>
       </main>
       <footer className="py-6 md:px-8 md:py-0">
         <div className="container flex flex-col items-center justify-center gap-4 md:h-24 md:flex-row">
