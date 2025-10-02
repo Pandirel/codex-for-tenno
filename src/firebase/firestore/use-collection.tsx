@@ -25,7 +25,10 @@ export function useCollection<T>(path: string, options?: UseCollectionOptions) {
   const [error, setError] = useState<FirestoreError | null>(null);
 
   useEffect(() => {
-    if (!firestore) return;
+    if (!firestore) {
+        setLoading(false);
+        return;
+    }
 
     let collectionRef: Query<DocumentData> = collection(firestore, path);
 
