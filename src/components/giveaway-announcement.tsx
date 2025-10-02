@@ -4,7 +4,6 @@
 import { useCollection } from '@/firebase';
 import { useLanguage } from '@/context/language-context';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
-import { Skeleton } from './ui/skeleton';
 import { Calendar, Gift } from 'lucide-react';
 import { format } from 'date-fns';
 import { es, enUS } from 'date-fns/locale';
@@ -25,22 +24,9 @@ export function GiveawayAnnouncement() {
 
   const activeGiveaway = activeGiveaways?.[0];
 
-  if (loading) {
-    return <Skeleton className="h-32 w-full" />;
-  }
-
-  if (!activeGiveaway) {
-    return (
-      <Card className="bg-muted/30">
-        <CardHeader className="flex flex-row items-center gap-4">
-          <Gift className="h-8 w-8 text-primary" />
-          <div>
-            <CardTitle className="font-headline tracking-tight">{t.noScheduledGiveaway}</CardTitle>
-            <p className="text-sm text-muted-foreground">{t.noScheduledGiveawayHint}</p>
-          </div>
-        </CardHeader>
-      </Card>
-    );
+  // If loading or no active giveaway, render nothing.
+  if (loading || !activeGiveaway) {
+    return null;
   }
   
   const formattedDate = activeGiveaway.drawDate ? format(new Date(activeGiveaway.drawDate), "PPP p", {
