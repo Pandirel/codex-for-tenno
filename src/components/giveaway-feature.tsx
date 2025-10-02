@@ -85,18 +85,19 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
       {showConfetti && (
-        <Confetti
-          width={windowSize.width}
-          height={windowSize.height}
-          recycle={false}
-          numberOfPieces={400}
-          style={{ position: 'fixed', top: 0, left: 0, zIndex: 1000 }}
-        />
+        <div className="fixed top-0 left-0 w-full h-full overflow-hidden" style={{ zIndex: 1000 }}>
+          <Confetti
+            width={windowSize.width}
+            height={windowSize.height}
+            recycle={false}
+            numberOfPieces={400}
+          />
+        </div>
       )}
       
-      <div className="lg:col-span-2 grid grid-cols-1 gap-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            <Card className="overflow-hidden h-full">
+      <div className={cn("lg:col-span-2 grid grid-cols-1 gap-8 transition-all duration-500 ease-in-out")}>
+        <div className={cn("grid grid-cols-1 lg:grid-cols-2 gap-8 items-start")}>
+            <Card className={cn("overflow-hidden h-full shadow-none")}>
                 <CardContent className="p-0">
                     <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
                     <Image 
@@ -111,7 +112,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
                 </CardContent>
             </Card>
             
-            <div className="flex flex-col gap-8">
+            <div className={cn("flex flex-col gap-8 transition-opacity duration-300")}>
               <div>
                 <Card>
                     <CardContent className="p-4 space-y-2">
@@ -144,7 +145,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
         </div>
       </div>
 
-      <div className="lg:col-span-1">
+      <div className={cn("lg:col-span-1 transition-opacity duration-300")}>
         <Card className="h-full">
           <CardHeader>
             <div className="flex items-center gap-3">
