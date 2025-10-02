@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import type { Giveaway } from '@/models/giveaway';
 import { useLanguage } from '@/context/language-context';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import Image from 'next/image';
@@ -11,12 +11,12 @@ import { Ticket, Trophy, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Confetti from 'react-confetti';
 import { useCollection, useFirestore } from '@/firebase';
-import { doc, updateDoc, collection, query, where, getDocs } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore';
 import { Skeleton } from './ui/skeleton';
 
 interface Participant {
   id: string;
-  name: string;
+  username: string; // Corrected from 'name' to 'username'
 }
 
 interface GiveawayDoc {
@@ -24,7 +24,7 @@ interface GiveawayDoc {
   active: boolean;
   participants: Participant[];
   winner?: Participant;
-  title?: { [key: string]: string };
+  title?: string; // Corrected from '{ [key: string]: string }'
   prizeImage?: string;
 }
 
@@ -46,8 +46,9 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
   const [showConfetti, setShowConfetti] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
+  // Use data from Firestore if available, otherwise use static data as fallback.
   const prizeImage = activeGiveaway?.prizeImage || giveaway.prizeImage;
-  const title = activeGiveaway?.title?.[language] || giveaway.title[language];
+  const title = activeGiveaway?.title || giveaway.title[language];
 
   useEffect(() => {
     if (activeGiveaway?.winner) {
@@ -89,7 +90,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
 
     const shuffle = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * participants.length);
-      setShufflingName(participants[randomIndex].name);
+      setShufflingName(participants[randomIndex].username); // Use .username
       shuffleCount++;
 
       if (shuffleCount > maxShuffles) {
@@ -154,7 +155,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
                   <div className="animate-in fade-in zoom-in-95 duration-500">
                       <Trophy className="h-12 w-12 mx-auto text-amber-400" />
                       <p className="text-muted-foreground mt-2 text-sm">{t.winner}</p>
-                      <h3 className="text-3xl font-bold font-headline text-primary my-1">{winner.name}</h3>
+                      <h3 className="text-3xl font-bold font-headline text-primary my-1">{winner.username}</h3>
                       <Button onClick={handleReset} variant="outline" size="sm" className="mt-2">{t.drawAgain}</Button>
                   </div>
                   ) : isDrawing ? (
@@ -200,7 +201,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
                     "p-2 rounded-md text-sm",
                     winner?.id === p.id ? 'bg-amber-400/20 text-amber-200 font-bold' : 'bg-muted/50'
                   )}>
-                    {p.name}
+                    {p.username}
                   </div>
                 ))}
               </div>
