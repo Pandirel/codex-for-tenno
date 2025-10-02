@@ -112,7 +112,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
             </Card>
             
             <div className="flex flex-col gap-8">
-              <div className={cn("transition-opacity duration-500 ease-in-out", isDrawing || winner ? 'opacity-0 invisible h-0' : 'opacity-100')}>
+              <div>
                 <Card>
                     <CardContent className="p-4 space-y-2">
                         <h2 className="font-headline text-2xl tracking-tight">{title}</h2>
@@ -144,7 +144,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
         </div>
       </div>
 
-      <div className={cn("lg:col-span-1", isDrawing || winner ? 'invisible' : '')}>
+      <div className="lg:col-span-1">
         <Card className="h-full">
           <CardHeader>
             <div className="flex items-center gap-3">
