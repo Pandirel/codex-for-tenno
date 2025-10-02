@@ -27,7 +27,6 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
   const title = giveaway.title[language];
-  const description = giveaway.description[language];
 
   useEffect(() => {
     const handleResize = () => {
@@ -99,23 +98,21 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
       
       <div className="lg:col-span-2 grid grid-cols-1 gap-8">
         <div className="grid lg:grid-cols-2 gap-8 items-start">
-            <Card className="overflow-hidden">
-                <Image 
-                    src={giveaway.prizeImage} 
-                    alt={title} 
-                    width={1280} 
-                    height={720} 
-                    className="object-cover w-full h-full rounded-lg"
-                    data-ai-hint="giveaway prize"
-                />
+            <Card className="overflow-hidden shadow-none">
+              <Image 
+                  src={giveaway.prizeImage} 
+                  alt={title} 
+                  width={1280} 
+                  height={720} 
+                  className="object-cover w-full h-full rounded-lg"
+                  data-ai-hint="giveaway prize"
+              />
             </Card>
             <div className="flex flex-col gap-8 h-full">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="font-headline tracking-tight">{title}</CardTitle>
-                  <CardDescription>{description}</CardDescription>
-                </CardHeader>
-              </Card>
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold leading-none tracking-tight font-headline">{title}</h2>
+                <p className="text-sm text-muted-foreground mt-2">{giveaway.description[language]}</p>
+              </div>
               
               <Card className="text-center p-6 bg-background/50 flex flex-col justify-center items-center flex-grow">
                   {winner ? (
