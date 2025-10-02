@@ -71,18 +71,18 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
       {showConfetti && <Confetti recycle={false} numberOfPieces={400} />}
       
-      {/* Prize Info */}
-      <div className="lg:col-span-2">
+      {/* Prize and Drawing Area */}
+      <div className="lg:col-span-3 flex flex-col gap-8">
         <Card className="overflow-hidden">
           <CardHeader>
             <CardTitle className="font-headline text-3xl tracking-tight">{title}</CardTitle>
             <CardDescription>{description}</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center mb-6">
+            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
               <Image 
                 src={giveaway.prizeImage} 
                 alt={title} 
@@ -92,35 +92,34 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
                 data-ai-hint="giveaway prize"
               />
             </div>
-            
-            {/* Drawing Area */}
-            <Card className="text-center p-8 bg-background/50">
-              {winner ? (
-                <div className="animate-in fade-in zoom-in-95 duration-500">
-                  <Trophy className="h-16 w-16 mx-auto text-amber-400" />
-                  <p className="text-muted-foreground mt-2">{t.winner}</p>
-                  <h3 className="text-4xl font-bold font-headline text-primary my-2">{winner}</h3>
-                  <Button onClick={handleReset} variant="outline" className="mt-4">{t.drawAgain}</Button>
-                </div>
-              ) : isDrawing ? (
-                <div className="h-32 flex items-center justify-center">
-                  <h3 className="text-4xl font-bold font-headline animate-pulse">{shufflingName}</h3>
-                </div>
-              ) : (
-                <div className="h-32 flex flex-col items-center justify-center">
-                  <Ticket className="h-16 w-16 mx-auto text-primary" />
-                  <Button onClick={handleDraw} size="lg" className="mt-4">{t.drawWinner}</Button>
-                </div>
-              )}
-            </Card>
-
           </CardContent>
+        </Card>
+        
+        {/* Drawing Area */}
+        <Card className="text-center p-8 bg-background/50 flex flex-col justify-center min-h-[220px]">
+          {winner ? (
+            <div className="animate-in fade-in zoom-in-95 duration-500">
+              <Trophy className="h-16 w-16 mx-auto text-amber-400" />
+              <p className="text-muted-foreground mt-2">{t.winner}</p>
+              <h3 className="text-4xl font-bold font-headline text-primary my-2">{winner}</h3>
+              <Button onClick={handleReset} variant="outline" className="mt-4">{t.drawAgain}</Button>
+            </div>
+          ) : isDrawing ? (
+            <div>
+              <h3 className="text-4xl font-bold font-headline animate-pulse">{shufflingName}</h3>
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center">
+              <Ticket className="h-16 w-16 mx-auto text-primary" />
+              <Button onClick={handleDraw} size="lg" className="mt-4">{t.drawWinner}</Button>
+            </div>
+          )}
         </Card>
       </div>
 
       {/* Participants List */}
-      <div>
-        <Card>
+      <div className="lg:col-span-2">
+        <Card className="h-full">
           <CardHeader>
             <div className="flex items-center gap-3">
               <Users className="h-6 w-6 text-primary" />
@@ -128,7 +127,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
             </div>
           </CardHeader>
           <CardContent>
-            <ScrollArea className="h-[400px] border rounded-md p-4">
+            <ScrollArea className="h-[480px] border rounded-md p-4">
               <div className="space-y-2">
                 {participants.map((p, i) => (
                   <div key={i} className={cn(
