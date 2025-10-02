@@ -32,6 +32,7 @@ const textContent = {
       description: '¡Participa en el sorteo de la comunidad uniéndote a nuestro Discord!',
       joinDiscord: 'Únete al Discord',
       participants: 'Participantes',
+      noParticipants: 'Aún no hay participantes. ¡Sé el primero!',
       drawWinner: 'Sortear Ganador',
       drawAgain: 'Sortear de Nuevo',
       winner: 'El ganador es...'
@@ -68,6 +69,7 @@ const textContent = {
       description: 'Join the community giveaway by joining our Discord!',
       joinDiscord: 'Join Discord',
       participants: 'Participants',
+      noParticipants: 'No participants yet. Be the first!',
       drawWinner: 'Draw Winner',
       drawAgain: 'Draw Again',
       winner: 'The winner is...'

@@ -5,13 +5,20 @@ import { useState, useEffect } from "react";
 import {
   collection,
   onSnapshot,
+  query,
+  where,
   Query,
   DocumentData,
   FirestoreError,
+  WhereFilterOp,
 } from "firebase/firestore";
 import { useFirestore } from "../provider";
 
-export function useCollection<T>(path: string) {
+interface UseCollectionOptions {
+    where?: [string, WhereFilterOp, any][];
+}
+
+export function useCollection<T>(path: string, options?: UseCollectionOptions) {
   const firestore = useFirestore();
   const [data, setData] = useState<T[] | null>(null);
   const [loading, setLoading] = useState(true);
@@ -20,7 +27,13 @@ export function useCollection<T>(path: string) {
   useEffect(() => {
     if (!firestore) return;
 
-    const collectionRef = collection(firestore, path) as Query<T>;
+    let collectionRef: Query<DocumentData> = collection(firestore, path);
+
+    if (options?.where) {
+        options.where.forEach(w => {
+            collectionRef = query(collectionRef, where(w[0], w[1], w[2]));
+        });
+    }
 
     const unsubscribe = onSnapshot(
       collectionRef,
@@ -35,11 +48,13 @@ export function useCollection<T>(path: string) {
       (err) => {
         setError(err);
         setLoading(false);
+        console.error(err);
       }
     );
 
     return () => unsubscribe();
-  }, [firestore, path]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [firestore, path, JSON.stringify(options?.where)]);
 
   return { data, loading, error };
 }

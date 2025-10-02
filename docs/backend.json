@@ -1,31 +1,56 @@
 {
   "entities": {
-    "participant": {
-      "title": "Participant",
-      "description": "A user participating in a giveaway.",
+    "giveaway": {
+      "title": "Giveaway",
+      "description": "Represents a single giveaway event.",
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string",
-          "description": "The participant's name or Discord username."
+        "title": {
+          "type": "object",
+          "properties": {
+            "en": { "type": "string" },
+            "es": { "type": "string" }
+          }
         },
-        "discordId": {
-            "type": "string",
-            "description": "The participant's Discord User ID."
+        "prizeImage": {
+          "type": "string",
+          "format": "uri"
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Indicates if the giveaway is currently active."
+        },
+        "participants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "description": "Discord User ID" },
+              "name": { "type": "string", "description": "Discord Username" }
+            },
+            "required": ["id", "name"]
+          }
+        },
+        "winner": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string" },
+            "name": { "type": "string" }
+          }
         }
       },
-      "required": ["name", "discordId"]
+      "required": ["title", "active", "participants"]
     }
   },
   "auth": {
     "providers": []
   },
   "firestore": {
-    "/giveaway_participants/{participantId}": {
+    "/giveaways/{giveawayId}": {
       "schema": {
-        "$ref": "#/entities/participant"
+        "$ref": "#/entities/giveaway"
       },
-      "description": "Stores the list of participants for the active giveaway."
+      "description": "Stores active and past giveaway events."
     }
   }
 }
