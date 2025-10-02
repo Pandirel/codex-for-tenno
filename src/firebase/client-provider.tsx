@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FirebaseProvider, initializeFirebase } from ".";
+import { initializeFirebase } from ".";
+import { FirebaseProvider } from "./provider";
 import type { FirebaseApp } from "firebase/app";
 import type { Auth } from "firebase/auth";
-import type { Firestore }d from "firebase/firestore";
+import type { Firestore } from "firebase/firestore";
 
 type FirebaseServices = {
   app: FirebaseApp;
