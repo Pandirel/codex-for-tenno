@@ -95,11 +95,11 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
       )}
       
       {/* Column 1 & 2: Prize and Drawing Area */}
-      <div className={cn("transition-all duration-500 ease-in-out", isDrawing || winner ? 'lg:col-span-3' : 'lg:col-span-2')}>
+      <div className="lg:col-span-2">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Prize Image */}
-            <div className={cn("transition-all duration-500 ease-in-out", isDrawing || winner ? 'lg:w-full' : 'lg:w-1/2')}>
+            <div className="lg:w-1/2">
                 <Card className="overflow-hidden h-full">
                     <CardContent className="p-0">
                         <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
@@ -117,16 +117,18 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
             </div>
             
             {/* Prize Info and Drawing Controls */}
-            <div className={cn(
-              "lg:w-1/2 flex flex-col gap-8 transition-opacity duration-500 ease-in-out",
-              isDrawing || winner ? 'lg:w-0 lg:opacity-0' : 'lg:w-1/2 lg:opacity-100'
-            )}>
-              <Card>
-                  <CardContent className="p-4 space-y-2">
-                      <h2 className="font-headline text-2xl tracking-tight">{title}</h2>
-                      <p className="text-sm text-muted-foreground">{description}</p>
-                  </CardContent>
-              </Card>
+            <div className="lg:w-1/2 flex flex-col gap-8">
+              <div className={cn(
+                  "transition-opacity duration-500 ease-in-out",
+                  (isDrawing || winner) ? 'opacity-0 h-0' : 'opacity-100'
+              )}>
+                <Card>
+                    <CardContent className="p-4 space-y-2">
+                        <h2 className="font-headline text-2xl tracking-tight">{title}</h2>
+                        <p className="text-sm text-muted-foreground">{description}</p>
+                    </CardContent>
+                </Card>
+              </div>
               
               <Card className="text-center p-6 bg-background/50 flex flex-col justify-center items-center flex-grow min-h-[150px]">
                   {winner ? (
@@ -155,8 +157,8 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
 
       {/* Participants List */}
       <div className={cn(
-        "transition-all duration-500 ease-in-out",
-        isDrawing || winner ? 'lg:col-span-0 lg:opacity-0 lg:hidden' : 'lg:col-span-1 lg:opacity-100'
+        "transition-opacity duration-500 ease-in-out",
+        (isDrawing || winner) ? 'opacity-0' : 'opacity-100 lg:col-span-1'
       )}>
         <Card className="h-full">
           <CardHeader>
