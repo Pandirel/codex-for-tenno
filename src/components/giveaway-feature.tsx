@@ -77,11 +77,11 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
       {/* Prize and Drawing Area */}
       <div className="lg:col-span-2 flex flex-col gap-8">
         <Card className="overflow-hidden">
-          <CardHeader>
-            <CardTitle className="font-headline text-3xl tracking-tight">{title}</CardTitle>
-            <CardDescription>{description}</CardDescription>
-          </CardHeader>
-          <CardContent>
+          <CardContent className="p-4 space-y-3">
+            <div>
+              <h2 className="font-headline text-2xl tracking-tight">{title}</h2>
+              <p className="text-sm text-muted-foreground">{description}</p>
+            </div>
             <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
               <Image 
                 src={giveaway.prizeImage} 
@@ -96,7 +96,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
         </Card>
         
         {/* Drawing Area */}
-        <Card className="text-center p-8 bg-background/50 flex flex-col justify-center items-center min-h-[220px]">
+        <Card className="text-center p-6 bg-background/50 flex flex-col justify-center items-center min-h-[200px]">
           {winner ? (
             <div className="animate-in fade-in zoom-in-95 duration-500">
               <Trophy className="h-16 w-16 mx-auto text-amber-400" />
@@ -126,7 +126,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
               <CardTitle className="font-headline tracking-tight">{t.participants} ({participants.length})</CardTitle>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-0">
             <ScrollArea className="h-[calc(100vh-250px)] min-h-[400px] border rounded-md p-4">
               <div className="space-y-2">
                 {participants.map((p, i) => (
