@@ -1,0 +1,31 @@
+{
+  "entities": {
+    "participant": {
+      "title": "Participant",
+      "description": "A user participating in a giveaway.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The participant's name or Discord username."
+        },
+        "discordId": {
+            "type": "string",
+            "description": "The participant's Discord User ID."
+        }
+      },
+      "required": ["name", "discordId"]
+    }
+  },
+  "auth": {
+    "providers": []
+  },
+  "firestore": {
+    "/giveaway_participants/{participantId}": {
+      "schema": {
+        "$ref": "#/entities/participant"
+      },
+      "description": "Stores the list of participants for the active giveaway."
+    }
+  }
+}

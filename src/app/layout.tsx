@@ -3,6 +3,7 @@ import './globals.css';
 import { LanguageProvider } from '@/context/language-context';
 import { Toaster } from '@/components/ui/toaster';
 import { Analytics } from '@vercel/analytics/react';
+import { FirebaseClientProvider } from '@/firebase';
 
 const title = 'Codex for Tenno';
 const description = 'A collection of guides and tips for new Warframe players.';
@@ -38,14 +39,16 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
-        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:rgb(124,82,183);stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:rgb(55,137,215);stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23grad)' d='M12 2L2 12l10 10 10-10L12 2zm0 2.828L19.172 12 12 19.172 4.828 12 12 4.828zm0 3.414l-2.829 2.829L12 13.9l2.828-2.829L12 8.242z'/%3E%3C/svg%3E" type="image/svg+xml" />
+        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:rgb(124,82,183);stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:rgb(55,137,215);stop-opacity:1' /%3E%3C/defs%3E%3Cpath fill='url(%23grad)' d='M12 2L2 12l10 10 10-10L12 2zm0 2.828L19.172 12 12 19.172 4.828 12 12 4.828zm0 3.414l-2.829 2.829L12 13.9l2.828-2.829L12 8.242z'/%3E%3C/svg%3E" type="image/svg+xml" />
       </head>
       <body className="font-body antialiased">
-        <LanguageProvider>
-          {children}
-          <Toaster />
-          <Analytics />
-        </LanguageProvider>
+        <FirebaseClientProvider>
+          <LanguageProvider>
+            {children}
+            <Toaster />
+            <Analytics />
+          </LanguageProvider>
+        </FirebaseClientProvider>
       </body>
     </html>
   );
