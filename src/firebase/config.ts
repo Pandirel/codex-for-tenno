@@ -16,10 +16,11 @@ const firebaseConfig: FirebaseOptions = {
 
 export function getFirebaseConfig() {
   if (!firebaseConfig || !firebaseConfig.apiKey || firebaseConfig.apiKey.startsWith('TODO:')) {
-    throw new Error(
+    console.warn(
       "No Firebase configuration object provided." +
         "Add your web app's configuration object to src/firebase/config.ts"
     );
+    return null;
   }
   return firebaseConfig;
 }

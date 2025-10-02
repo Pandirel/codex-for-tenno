@@ -1,17 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { initializeFirebase } from ".";
+import { initializeFirebase, type FirebaseServices } from ".";
 import { FirebaseProvider } from "./provider";
-import type { FirebaseApp } from "firebase/app";
-import type { Auth } from "firebase/auth";
-import type { Firestore } from "firebase/firestore";
-
-type FirebaseServices = {
-  app: FirebaseApp;
-  auth: Auth;
-  firestore: Firestore;
-};
 
 export function FirebaseClientProvider({
   children,
@@ -19,18 +10,24 @@ export function FirebaseClientProvider({
   children: React.ReactNode;
 }) {
   const [firebase, setFirebase] = useState<FirebaseServices | null>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     const init = async () => {
       const services = await initializeFirebase();
       setFirebase(services);
+      setIsInitialized(true);
     };
 
     init();
   }, []);
 
+  if (!isInitialized) {
+    return null; // or a loading indicator while Firebase initializes
+  }
+
   if (!firebase) {
-    return null; // or a loading indicator
+    return <>{children}</>;
   }
 
   return (
