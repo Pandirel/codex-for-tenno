@@ -95,7 +95,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
         </div>
       )}
       
-      <div className={cn("lg:col-span-2 grid grid-cols-1 gap-8 transition-all duration-500 ease-in-out")}>
+      <div className={cn("lg:col-span-2 grid grid-cols-1 gap-8")}>
         <div className={cn("grid grid-cols-1 lg:grid-cols-2 gap-8 items-start")}>
             <Card className={cn("overflow-hidden h-full shadow-none")}>
                 <CardContent className="p-0">
@@ -112,7 +112,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
                 </CardContent>
             </Card>
             
-            <div className={cn("flex flex-col gap-8 transition-opacity duration-300")}>
+            <div className={cn("flex flex-col gap-8")}>
               <div>
                 <Card>
                     <CardContent className="p-4 space-y-2">
@@ -145,7 +145,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
         </div>
       </div>
 
-      <div className={cn("lg:col-span-1 transition-opacity duration-300")}>
+      <div className={cn("lg:col-span-1")}>
         <Card className="h-full">
           <CardHeader>
             <div className="flex items-center gap-3">
