@@ -71,11 +71,11 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
       {showConfetti && <Confetti recycle={false} numberOfPieces={400} />}
       
       {/* Prize and Drawing Area */}
-      <div className="lg:col-span-3 flex flex-col gap-8">
+      <div className="lg:col-span-2 flex flex-col gap-8">
         <Card className="overflow-hidden">
           <CardHeader>
             <CardTitle className="font-headline text-3xl tracking-tight">{title}</CardTitle>
@@ -96,7 +96,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
         </Card>
         
         {/* Drawing Area */}
-        <Card className="text-center p-8 bg-background/50 flex flex-col justify-center min-h-[220px]">
+        <Card className="text-center p-8 bg-background/50 flex flex-col justify-center items-center min-h-[220px]">
           {winner ? (
             <div className="animate-in fade-in zoom-in-95 duration-500">
               <Trophy className="h-16 w-16 mx-auto text-amber-400" />
@@ -118,7 +118,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
       </div>
 
       {/* Participants List */}
-      <div className="lg:col-span-2">
+      <div className="lg:col-span-1">
         <Card className="h-full">
           <CardHeader>
             <div className="flex items-center gap-3">
@@ -127,7 +127,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
             </div>
           </CardHeader>
           <CardContent>
-            <ScrollArea className="h-[480px] border rounded-md p-4">
+            <ScrollArea className="h-[calc(100vh-250px)] min-h-[400px] border rounded-md p-4">
               <div className="space-y-2">
                 {participants.map((p, i) => (
                   <div key={i} className={cn(
