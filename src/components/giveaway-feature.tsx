@@ -34,10 +34,12 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
     };
     
-    window.addEventListener('resize', handleResize);
-    handleResize();
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
+      handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
   }, []);
 
   useEffect(() => {
@@ -85,7 +87,7 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
       {showConfetti && (
-        <div className="fixed top-0 left-0 w-full h-full overflow-hidden" style={{ zIndex: 1000 }}>
+        <div className="fixed top-0 left-0 w-full h-full pointer-events-none" style={{ zIndex: 1000 }}>
           <Confetti
             width={windowSize.width}
             height={windowSize.height}
@@ -95,9 +97,13 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
         </div>
       )}
       
-      <div className={cn("lg:col-span-2 grid grid-cols-1 gap-8")}>
-        <div className={cn("grid grid-cols-1 lg:grid-cols-2 gap-8 items-start")}>
-            <Card className={cn("overflow-hidden h-full shadow-none")}>
+      <div className={cn(
+          "lg:col-span-2 grid grid-cols-1 gap-8 transition-all duration-500"
+        )}>
+        <div className={cn(
+            "grid grid-cols-1 lg:grid-cols-2 gap-8 items-start",
+          )}>
+            <Card className="overflow-hidden h-full shadow-none">
                 <CardContent className="p-0">
                     <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
                     <Image 
@@ -112,14 +118,10 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
                 </CardContent>
             </Card>
             
-            <div className={cn("flex flex-col gap-8")}>
-              <div>
-                <Card>
-                    <CardContent className="p-4 space-y-2">
-                        <h2 className="font-headline text-2xl tracking-tight">{title}</h2>
-                        <p className="text-sm text-muted-foreground">{description}</p>
-                    </CardContent>
-                </Card>
+            <div className="flex flex-col gap-8">
+              <div className="space-y-2">
+                <h2 className="font-headline text-2xl tracking-tight">{title}</h2>
+                <p className="text-sm text-muted-foreground">{description}</p>
               </div>
               
               <Card className="text-center p-6 bg-background/50 flex flex-col justify-center items-center flex-grow min-h-[150px]">
@@ -145,7 +147,9 @@ export function GiveawayFeature({ giveaway }: { giveaway: Giveaway }) {
         </div>
       </div>
 
-      <div className={cn("lg:col-span-1")}>
+      <div className={cn(
+          "lg:col-span-1 transition-opacity duration-500",
+        )}>
         <Card className="h-full">
           <CardHeader>
             <div className="flex items-center gap-3">
