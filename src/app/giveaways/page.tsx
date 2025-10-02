@@ -1,7 +1,7 @@
 
 'use client';
 
-import { GiveawayRoulette } from '@/components/giveaway-roulette';
+import { GiveawayFeature } from '@/components/giveaway-feature';
 import { MobileNav } from '@/components/mobile-nav';
 import { MainNav } from '@/components/main-nav';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -48,7 +48,7 @@ export default function GiveawayPage() {
         </div>
       </header>
       <main className="container mx-auto max-w-screen-2xl p-4 sm:p-6 md:p-8">
-        <GiveawayRoulette giveaway={giveaway}/>
+        <GiveawayFeature giveaway={giveaway}/>
       </main>
       <footer className="py-6 md:px-8 md:py-0">
         <div className="container flex flex-col items-center justify-center gap-4 md:h-24 md:flex-row">
