@@ -26,7 +26,7 @@ export function FarmingTable({ resources }: { resources: Resource[] }) {
         <p className="text-muted-foreground mt-2">
           {t.description}{' '}
           <a 
-            href="https://warframe.fandom.com/wiki/Resources#Recommended_Farming_Locations" 
+            href="https://wiki.warframe.com/w/Resources#Recommended_Farming_Locations" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-accent hover:underline"

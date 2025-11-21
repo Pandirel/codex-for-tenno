@@ -88,11 +88,19 @@ export interface Resource {
     {
         id: 9,
         icon: '/images/resources/Tellurium.webp',
-        name: { es: 'Tellurio', en: 'Tellurium' },
+        name: { es: 'Telurio', en: 'Tellurium' },
         planet: { es: 'Urano / Neptuno', en: 'Uranus / Neptune' },
         mission: { es: 'Ophelia / Salacia', en: 'Ophelia / Salacia' },
         notes: { es: 'Solo en misiones de Archwing', en: 'Only in Archwing missions' },
     },
+   {
+    id: 10,
+    icon: '/images/resources/Oxium.webp',
+    name: { es: 'Oxium', en: 'Oxium' },
+    planet: { es: 'Jupiter / Neptuno', en: 'Jupiter / Neptune' },
+    mission: { es: 'Elara / Despina', en: 'Elara / Despina ' },
+    notes: { es: 'Lo drones sueltan mucho este recurso', en: 'Drones release a lot of this resource' },
+   }
   ];
   
   export function getResources(): Resource[] {
